@@ -1,0 +1,63 @@
+<!-- Navigation -->
+<small-navbar id="smallNavbar" welcome="true" hidebar="true" collapsed="true" color="false"></small-navbar>
+<div id="fullPageScroll">
+    <!-- Intro Header -->
+    <section id="intro" class="mydiv intro section" id="welcome">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="brand-heading">Welcome to Small {{currency}}</h1>
+              <p class="intro-text intro-text-top">One business. One insurance. That simple!</p>
+              <div id="getQuoteButton">
+                  <a href="#user_info"  class="smallButton page-scroll"> Click here to get a quote </a>
+              </div>
+
+              <div id="scrollDown">
+                  <p class="">or scroll down</p>
+                  <a href="#user_info" class="btn page-scroll">
+                    <div class="circle">  <span id="scrollDownArrow" class="icon icon-arrow-down"></span></div>
+                  </a>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mydiv section" id="user_info">
+      <div ng-include="'app/views/quote/userInfo.html'"></div>
+    </section>
+</div>
+
+
+
+<script type="text/javascript">
+  //jQuery for page scrolling feature - requires jQuery Easing plugin
+   $('#fullPageScroll').ready(function() {
+      $('a.page-scroll').bind('click', function(event) {
+        $.fn.fullpage.moveSectionDown();
+        event.preventDefault();
+      });
+
+      if (typeof $.fn.fullpage.destroy == 'function') {
+          $.fn.fullpage.destroy('all');
+      }
+
+      $('#fullPageScroll').fullpage({
+            scrollOverflow: true,
+            scrollBar: true,
+            keyboardScrolling: false,
+
+            afterLoad: function(anchorLink, index){
+                //using index
+                if(index === 2){
+                    $(".nameInput").focus();
+                }
+            }
+
+        });
+    });
+
+</script>

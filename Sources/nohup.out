@@ -1,0 +1,34 @@
+Error: listen EADDRINUSE :::9001
+    at Object.exports._errnoException (util.js:856:11)
+    at exports._exceptionWithHostPort (util.js:879:20)
+    at Server._listen2 (net.js:1227:14)
+    at listen (net.js:1263:10)
+    at Server.listen (net.js:1359:5)
+    at ServerService.Start (/home/centos/Techathon/ddrepository/Frontend/services/ServerService.js:36:27)
+    at Object.<anonymous> (/home/centos/Techathon/ddrepository/Frontend/app.js:4:15)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+{ level: 'ERROR',
+  timestamp: '2016-02-20T11:25:08.712Z',
+  machineName: 'ip-172-31-34-138.eu-west-1.compute.internal',
+  projectName: 'Techathon Frontend App',
+  category: 'UncaughtException',
+  message: 'listen EADDRINUSE :::9001' }
+Error: listen EADDRINUSE :::9011
+    at Object.exports._errnoException (util.js:856:11)
+    at exports._exceptionWithHostPort (util.js:879:20)
+    at Server._listen2 (net.js:1227:14)
+    at listen (net.js:1263:10)
+    at Server.listen (net.js:1359:5)
+    at ServerService.Start (/home/centos/Techathon/ddrepository/Frontend/services/ServerService.js:52:28)
+    at Object.<anonymous> (/home/centos/Techathon/ddrepository/Frontend/app.js:4:15)
+    at Module._compile (module.js:413:34)
+    at Object.Module._extensions..js (module.js:422:10)
+    at Module.load (module.js:357:32)
+{ level: 'ERROR',
+  timestamp: '2016-02-20T11:25:08.784Z',
+  machineName: 'ip-172-31-34-138.eu-west-1.compute.internal',
+  projectName: 'Techathon Frontend App',
+  category: 'UncaughtException',
+  message: 'listen EADDRINUSE :::9011' }

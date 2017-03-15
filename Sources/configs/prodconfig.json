@@ -1,0 +1,39 @@
+{
+    "backendHost": "http://localhost:9003",
+    "httpMode": true,
+    "httpsMode": true,
+    "httpsModeKeyPath": "./cert/key.pem",
+    "httpsModeCertPath": "./cert/cert.pem",
+    "httpPort": 9009,
+    "httpsPort": 9011,
+    "logconfigurations": {
+        "FalcorRouterConfigs": {
+            "host": "http://192.168.12.174",
+            "port": 9002,
+            "logsPath": "/logs.json",
+            "authPath": "/auth.json"
+        },
+        "debugModeEnabled": true,
+        "debugLevel": "TRACE",
+        "nonDebugLevel": "INFO",
+        "machineName": "os.hostname()",
+        "projectName": "insurance",
+        "consoleLogging": true,
+        "Testing": {
+            "mode": true,
+            "string": "testing mode front-end"
+        }
+    },
+    "google" : {
+        "clientID": "58834564768-9oustj3ks9bgak9dbvctirbefljjv00t.apps.googleusercontent.com",
+        "clientSecret": "yGw53051kZMY3MP87F4khaoZ"
+    },
+    "facebook"  : {
+        "clientID": "808088292630875",
+        "clientSecret": "9f88d5503dd32e2068cc9df54e8d8cd8"
+    },
+    "linkedin" : {
+        "clientID": "77yos1qwnjlzl4",
+        "clientSecret": "ur0gke5rWE67txSs"
+    }
+}

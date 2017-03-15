@@ -1,0 +1,367 @@
+<div class="fixed" ng-init="init()">
+    <div class="wrapper">
+        <p2p-navbar></p2p-navbar>
+
+        <div class="content-wrapper">
+
+            <section class="search-content">
+
+                <div class="row ">
+                    <div class="col-md-4 ">
+                        <input type="text" placeholder="Name or Location" class="search-input form-control">
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <select class="search-select form-control">
+                            <option value="hospital">Hospital</option>
+                            <option value="laboratory">Laboratory</option>
+                            <option value="health-center">Health Center</option>
+                            <option value="clinic">Clinic</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <button class="btn search-button btn-primary">Search</button>
+                    </div>
+                </div>
+
+            </section>
+            <section class="content providers-content">
+                <div class="box">
+                    <div class="box-body">
+                        <div class="col-md-2 text-center">
+                            <img class="img-responsive"  src="assets/img/hospital3.jpg">
+
+                        </div>
+                        <div class="col-md-10">
+                            <div class="hospital-advisor-title">
+                                Hospital St. John
+                            </div>
+                            <div class="hospital-advisor-description">
+                                30 Rockefeller Plaza, New York
+                            </div>
+                            <div class="review-item"  ng-controller="StarCtrl">
+                                <div ng-repeat="rating in ratings">
+
+                                    <div star-rating rating-value="7" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 services-description">
+                                Specialists
+                                <div class="row services-container">
+                                    <div class=" col-md-2 service-box center-contents">
+
+                                           <img height="40px" width="40px" src="assets/img/Lungs-100_white.png">
+
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Medical Heart-100_white.png">
+                                    </div>
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Kidney-100_white_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Liver-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Large Intestine-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Skeleton-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Skin-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Pregnant-100_white.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 services-description">
+                                Diagnostic
+                                <div class="row services-container ">
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/X-ray-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Heart Monitor-100_white.png">
+                                    </div>
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Syringe-100_white.png">
+                                    </div>
+
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Microbeam Radiation Therapy-100_white.png">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 services-description ">
+                                Treatments
+                                <div class="row services-container">
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Physical Therapy-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Massage-100_white.png">
+
+                                    </div>
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Sperm Bank-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Vaccine Drop-100_white.png">
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-body">
+                        <div class="col-md-2 text-center">
+                            <img class="img-responsive"  src="assets/img/hospital4.jpg">
+
+                        </div>
+                        <div class="col-md-10">
+                            <div class="hospital-advisor-title">
+                                Hospital St. Oliver
+                            </div>
+                            <div class="hospital-advisor-description">
+                                42 1 Motohakone Hakonemaci
+                            </div>
+                            <div class="review-item"  ng-controller="StarCtrl">
+                                <div ng-repeat="rating in ratings">
+
+                                    <div star-rating rating-value="8" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 services-description">
+                                Specialists
+                                <div class="row services-container">
+
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Liver-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Large Intestine-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Skeleton-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Skin-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Pregnant-100_white.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 services-description">
+                                Diagnostic
+                                <div class="row services-container ">
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/X-ray-100_white.png">
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 services-description ">
+                                Treatments
+                                <div class="row services-container">
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Physical Therapy-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Massage-100_white.png">
+
+                                    </div>
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Sperm Bank-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Vaccine Drop-100_white.png">
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-body">
+                        <div class="col-md-2 text-center">
+                            <img  class="img-responsive" src="assets/img/hospital1.jpg">
+
+                        </div>
+                        <div class="col-md-10">
+                            <div class="hospital-advisor-title">
+                                Hospital Best Health
+                            </div>
+                            <div class="hospital-advisor-description">
+                                Middle of JiangNan Rd
+                            </div>
+                            <div class="review-item"  ng-controller="StarCtrl">
+                                <div ng-repeat="rating in ratings">
+
+                                    <div star-rating rating-value="5" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 services-description">
+                                Specialists
+                                <div class="row services-container">
+                                    <div class=" col-md-2 service-box center-contents">
+
+                                        <img height="40px" width="40px" src="assets/img/Lungs-100_white.png">
+
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Medical Heart-100_white.png">
+                                    </div>
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Kidney-100_white_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Liver-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Large Intestine-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Skeleton-100_white.png">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 services-description">
+                                Diagnostic
+                                <div class="row services-container ">
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/X-ray-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Heart Monitor-100_white.png">
+                                    </div>
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Syringe-100_white.png">
+                                    </div>
+
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Microbeam Radiation Therapy-100_white.png">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 services-description ">
+                                Treatments
+                                <div class="row services-container">
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Physical Therapy-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Massage-100_white.png">
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-body">
+                        <div class="col-md-2 text-center">
+                            <img class="img-responsive"  src="assets/img/hospital2.jpg">
+
+                        </div>
+                        <div class="col-md-10">
+                            <div class="hospital-advisor-title">
+                                Militar Hospital
+                            </div>
+                            <div class="hospital-advisor-description">
+                                1807 Glenwood St NE
+                            </div>
+                            <div class="review-item"  ng-controller="StarCtrl">
+                                <div ng-repeat="rating in ratings">
+
+                                    <div star-rating rating-value="6" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 services-description">
+                                Specialists
+                                <div class="row services-container">
+                                    <div class=" col-md-2 service-box center-contents">
+
+                                        <img height="40px" width="40px" src="assets/img/Lungs-100_white.png">
+
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Medical Heart-100_white.png">
+                                    </div>
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Kidney-100_white_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Liver-100_white.png">
+                                    </div>
+
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Pregnant-100_white.png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 services-description">
+                                Diagnostic
+                                <div class="row services-container ">
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/X-ray-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Heart Monitor-100_white.png">
+                                    </div>
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Syringe-100_white.png">
+                                    </div>
+
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Microbeam Radiation Therapy-100_white.png">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 services-description ">
+                                Treatments
+                                <div class="row services-container">
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Physical Therapy-100_white.png">
+                                    </div>
+                                    <div class="col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Massage-100_white.png">
+
+                                    </div>
+                                    <div class=" col-md-2 service-box center-contents">
+                                        <img height="40px" width="40px" src="assets/img/Sperm Bank-100_white.png">
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </section>
+         </div>
+    </div>
+</div>
+

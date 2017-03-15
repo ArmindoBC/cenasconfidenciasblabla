@@ -1,0 +1,107 @@
+
+
+<div class="container-fluid quote step1" ng-controller="UserInfoController">
+    <div class="row">
+        <div id="getQuoteWrapper" class="col-sm-offset-2 col-sm-8">
+            <div id="quoteHeader" class="row">
+                <div id="primaryHeader">
+                    Let's get you a quote.
+                </div>
+                <div id="secondaryHeader">
+                    This will take only a few seconds.
+                </div>
+            </div>
+            <div id="quoteForm" class="row">
+
+                <div>
+
+                    <span id="basicInfo" class="quotePart">
+                        Hi, I'm
+                        <span
+                        class="nameInput"
+                        contenteditable="true"
+                        ng-model="UserInputData.name"
+                        ng-blur="ValidateQuoteForm('name')"
+                        placeholder="NAME"
+                        ng-class="{'error': UserFormData.errors.name}">
+                    </span>
+                    and I'd like to insure
+                    <span
+                    contenteditable="true"
+                    ng-model="UserInputData.businessName"
+                    ng-blur="ValidateQuoteForm('businessName')"
+                    placeholder="COMPANY NAME"
+                    ng-class="{'error': UserFormData.errors.businessName}">
+                </span>
+
+            </span>
+            <span id="businessType" class="quotePart">
+              operating in the
+              <select class="resizeselect" ng-model="UserInputData.businessType" ng-options="option.text for option in UserFormData.businessTypes track by option.value">
+              </select>
+              sector.
+          </span>
+      </div>
+
+
+
+      <div>
+        <span id="numberEmployees" class="quotePart">
+            I have
+            <select class="resizeselect" ng-model="UserInputData.numberEmployees" ng-options="option.text for option in UserFormData.numberEmployees track by option.value">
+            </select>
+            employees,
+        </span>
+
+        <span id="income" class="quotePart">
+            my turnover is
+            <span
+            id="group-income-1"
+            contenteditable="true"
+            ng-model="UserInputData.income"
+            ng-blur="ValidateQuoteForm('income')"
+            placeholder="****"
+            ng-class="{'error': UserFormData.errors.income}" currency-editable>
+        </span> </span>
+        per year and
+    </span>
+    <span id="zipCode" class="quotePart">
+        my zip code is
+        <span
+        contenteditable="true"
+        ng-model="UserInputData.zipCode1"
+        ng-blur="ValidateQuoteForm('zipCode1')"
+        placeholder="****"
+        ng-class="{'error': UserFormData.errors.zipCode1}"
+        ng-change="SetFocus()">
+    </span>
+    -
+    <span
+    contenteditable="true"
+    ng-model="UserInputData.zipCode2"
+    ng-blur="ValidateQuoteForm('zipCode2')"
+    placeholder="***"
+    ng-class="{'error': UserFormData.errors.zipCode2}"
+    class="editable2">
+</span>
+.
+</span>
+</div>
+
+</div>
+
+<div id="quoteErrors" class="row text-center">
+    <div ng-repeat="error in GetErrors()">
+        <span class="errorStar">*</span>
+        <span>
+            {{error}}
+        </span>
+    </div>
+</div>
+<div id="quoteSubmit" class="row text-center">
+    <input type="button"  class="smallButton" value="Get a Quote" ng-click="GetQuote()"/>
+</div>
+</div>
+</div>
+
+</div>

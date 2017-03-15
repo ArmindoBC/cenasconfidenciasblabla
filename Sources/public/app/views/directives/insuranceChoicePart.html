@@ -1,0 +1,201 @@
+<div class="itemHead" ng-click="ToogleEditItem('vehicles', index, 'editItemForm')" ng-if="type === 'vehicles'">
+  <div class="title row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8">
+      {{ part.brandModel }}
+    </div>
+    <div class="col-md-2">
+      <span class="icon icon-quote-1 editItem" ng-class="{'icon-down':!editActive,'icon-up':editActive}" ></span>
+    </div>
+  </div>
+  <div class="subtitle">
+    {{ part.registration }}
+  </div>
+</div>
+<div class="formContainer" id="editItemForm{{ index }}" ng-if="type === 'vehicles'">
+  <p>
+    <span class="input input--hoshi " ng-class="{'input--filled' : part.brandModel != ''}"
+    ng-blur="ValidateChoiceForm(part,'brandModel','vehicles')">
+      <input class="input__field input__field--hoshi input-text" type="text" ng-model="part.brandModel" />
+      <label class="input__label input__label--hoshi input__label--hoshi-color-1 input-title" ng-class="{'error': errors.vehicles.brandModel}">
+        <span class="input__label-content input__label-content--hoshi">Brand & Model</span>
+      </label>
+    </span>
+    <div class="InsuranceChoiceErrors" ng-if="errors.vehicles.brandModel">
+      <span class="errorStar">*</span>
+      <span>{{errors.vehicles.brandModel}}</span>
+    </div>
+
+    <span class="input input--hoshi" ng-class="{'input--filled' : part.value != ''}">
+      <input class="input__field input__field--hoshi input-text" type="text" ng-model="part.value" ng-blur="ValidateChoiceForm(part,'value','vehicles')" currency/>
+      <label class="input__label input__label--hoshi input__label--hoshi-color-1 input-title" ng-class="{'error': errors.vehicles.value}" >
+        <span class="input__label-content input__label-content--hoshi">Value</span>
+      </label>
+    </span>
+    <div class="InsuranceChoiceErrors" ng-if="errors.vehicles.value">
+      <span>*</span>
+      <span>{{errors.vehicles.value}}</span>
+    </div>
+
+    <span class="input input--hoshi" ng-class="{'input--filled' : part.registration != ''}">
+      <input class="input__field input__field--hoshi input-text" type="text" ng-model="part.registration" ng-blur="ValidateChoiceForm(part,'registration','vehicles')" car-plate/>
+      <label class="input__label input__label--hoshi input__label--hoshi-color-1 input-title" ng-class="{'error':errors.vehicles.registration}">
+        <span class="input__label-content input__label-content--hoshi">Registration</span>
+      </label>
+    </span>
+    <div class="InsuranceChoiceErrors" ng-if="errors.vehicles.registration">
+      <span>*</span>
+      <span>{{errors.vehicles.registration}}</span>
+    </div>
+
+    <span class="input input--hoshi" ng-class="{'input--filled' : part.year != ''}">
+      <input class="input__field input__field--hoshi input-text" type="text" ng-model="part.year" ng-blur="ValidateChoiceForm(part,'year','vehicles')"/>
+      <label class="input__label input__label--hoshi input__label--hoshi-color-1 input-title" ng-class="{error: errors.vehicles.year}">
+        <span class="input__label-content input__label-content--hoshi">Year</span>
+      </label>
+    </span>
+    <div class="InsuranceChoiceErrors" ng-if="errors.vehicles.year">
+      <span>*</span>
+      <span>{{errors.vehicles.year}}</span>
+    </div>
+
+    <div class="buttons-vehicle">
+      <button type="button" class="btn btn-primary" ng-click="addChoice(part,'vehicles', index, 'editItemForm')">Confirm</button>
+    </div>
+    <div ng-if="!new">
+      <button type="button" class="btn btn-default deleteButton" ng-click="RemoveItem('vehicles', index, 'editItemForm')">Delete</button>
+    </div>
+    <div ng-if="new">
+      <button type="button" class="btn btn-default cancelButton" ng-click="CancelNewItem('vehicles','editItemForm')">Cancel</button>
+    </div>
+  </p>
+</div>
+
+<div class="itemHead" ng-click="ToogleEditItem('persons', index, 'editPersonForm')" ng-if="type === 'persons'">
+  <div class="title row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8">
+      {{ part.name }}
+    </div>
+    <div class="col-md-2">
+      <span class="icon icon-quote-1 editItem" ng-class="{'icon-down':!editActive,'icon-up':editActive}" ></span>
+    </div>
+  </div>
+  <div class="subtitle">
+    {{ part.role }}
+  </div>
+</div>
+
+<div class="formContainer" id="editPersonForm{{ index }}" ng-if="type === 'persons'">
+  <p>
+    <span class="input input--hoshi " ng-class="{'input--filled' : part.name != ''}">
+      <input class="input__field input__field--hoshi input-text" type="text" ng-model="part.name" ng-blur="ValidateChoiceForm(part, 'name','persons')"/>
+      <label class="input__label input__label--hoshi input__label--hoshi-color-1 input-title" ng-class="{error: errors.persons.name}">
+        <span class="input__label-content input__label-content--hoshi">Name</span>
+      </label>
+    </span>
+    <div class="InsuranceChoiceErrors" ng-if="errors.persons.name">
+      <span>*</span>
+      <span>{{errors.persons.name}}</span>
+    </div>
+
+    <span class="input input--hoshi" ng-class="{'input--filled' : part.role != ''}">
+      <input class="input__field input__field--hoshi input-text" type="text" ng-model="part.role" ng-blur="ValidateChoiceForm(part, 'role', 'persons')"/>
+      <label class="input__label input__label--hoshi input__label--hoshi-color-1 input-title" ng-class="{error: errors.persons.role}">
+        <span class="input__label-content input__label-content--hoshi">Role</span>
+      </label>
+    </span>
+    <div class="InsuranceChoiceErrors" ng-if="errors.persons.role">
+      <span>*</span>
+      <span>{{errors.persons.role}}</span>
+    </div>
+
+    <span class="input input--hoshi" ng-class="{'input--filled' : part.age != ''}">
+      <input class="input__field input__field--hoshi input-text" type="text" ng-model="part.age" ng-blur="ValidateChoiceForm(part, 'age', 'persons')"/>
+      <label class="input__label input__label--hoshi input__label--hoshi-color-1 input-title" ng-class="{error: errors.persons.age}">
+        <span class="input__label-content input__label-content--hoshi">Age</span>
+      </label>
+    </span>
+    <div class="InsuranceChoiceErrors" ng-if="errors.persons.age">
+      <span>*</span>
+      <span>{{errors.persons.age}}</span>
+    </div>
+
+    <span class="input input--hoshi" ng-class="{'input--filled' : part.salary != ''}">
+      <input class="input__field input__field--hoshi input-text" type="text" ng-model="part.salary" ng-blur="ValidateChoiceForm(part, 'salary', 'persons')"/>
+      <label class="input__label input__label--hoshi input__label--hoshi-color-1 input-title" ng-class="{error: errors.persons.salary}">
+        <span class="input__label-content input__label-content--hoshi">Salary</span>
+      </label>
+    </span>
+    <div class="InsuranceChoiceErrors" ng-if="errors.persons.salary">
+      <span>*</span>
+      <span>{{errors.persons.salary}}</span>
+    </div>
+
+    <div class="buttons-vehicle">
+      <button type="button" class="btn btn-primary" ng-click="addChoice(part,'persons', index, 'editPersonForm')">Confirm</button>
+    </div>
+    <div ng-if="!new">
+      <button type="button" class="btn btn-default deleteButton" ng-click="RemoveItem('persons', index, 'editPersonForm')">Delete</button>
+    </div>
+    <div ng-if="new">
+      <button type="button" class="btn btn-default cancelButton" ng-click="CancelNewItem('persons',editPersonForm)">Cancel</button>
+    </div>
+  </p>
+</div>
+
+<div class="itemHead" ng-click="ToogleEditItem('properties', index, 'editPropertieForm')"  ng-if="type === 'properties'">
+  <div class="title row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-8">
+      {{ part.name }}
+    </div>
+    <div class="col-md-2">
+      <span class="icon icon-quote-1 editItem" ng-class="{'icon-down':!editActive,'icon-up':editActive}" ></span>
+    </div>
+  </div>
+  <div class="subtitle">
+    {{ part.address }}
+  </div>
+</div>
+<div class="formContainer" id="editPropertieForm{{ index }}" ng-if="type === 'properties'">
+  <p>
+    <span class="input input--hoshi" ng-class="{'input--filled' : part.name != ''}">
+      <input class="input__field input__field--hoshi input-text" type="text" ng-model="part.name" ng-blur="ValidateChoiceForm(part, 'name', 'properties')"/>
+      <label class="input__label input__label--hoshi input__label--hoshi-color-1 input-title" ng-class="{'error': errors.properties.name}"  >
+        <span class="input__label-content input__label-content--hoshi">Name</span>
+      </label>
+    </span>
+    <div class="InsuranceChoiceErrors" ng-if="errors.properties.name">
+      <span>*</span>
+      <span>{{errors.properties.name}}</span>
+    </div>
+
+    <span class="input input--hoshi" ng-class="{'input--filled' : part.address != ''}">
+      <input class="input__field input__field--hoshi input-text" type="text" ng-model="part.address" ng-blur="ValidateChoiceForm(part,'address', 'properties')"/>
+      <label class="input__label input__label--hoshi input__label--hoshi-color-1 input-title" ng-class="{error: errors.properties.address}">
+        <span class="input__label-content input__label-content--hoshi">Address</span>
+      </label>
+    </span>
+    <div class="InsuranceChoiceErrors" ng-if="errors.properties.address">
+      <span>*</span>
+      <span>{{errors.properties.address}}</span>
+    </div>
+
+    <div class="buttons-vehicle">
+      <button type="button" class="btn btn-primary" ng-click="addChoice(part,'properties', index, 'editPropertieForm')">Confirm</button>
+    </div>
+    <div ng-if="!new">
+      <button type="button" class="btn btn-default deleteButton" ng-click="RemoveItem('properties', index, 'editPropertieForm')">Delete</button>
+    </div>
+    <div ng-if="new">
+      <button type="button" class="btn btn-default cancelButton" ng-click="CancelNewItem('properties','editPropertieForm')">Cancel</button>
+    </div>
+  </p>
+</div>

@@ -1,0 +1,52 @@
+<div class="bundleProduct">
+    <div class="productTitle">
+        {{product.title}}
+    </div>
+    <div class="basicCoverages coveragesGroup" ng-if="(product.coverageList | filter: basicFilter).length > 0" ng-class="{'disabledPackage':  DisabledPackage(product.id, 'basic')}">
+        <div class="coveragesGroupIcon">
+            <span class="icon icon-basic"></span>
+            <p class="coveragesGroupTitle">Basic</p>
+        </div>
+        <div class="coverageList">
+            <div class="coverage" ng-repeat="coverage in product.coverageList | filter: basicFilter" ng-class="{'disabled': !SelectedCoverage(coverage, 'basic')}">
+                <span class="title" for="checkbox" >{{coverage.title}}</span>
+                <label class="coverageCheckbox">
+                    <input type="checkbox" name="label" checklist-change="ToggleCoverageSelection(coverage)" data-checklist-model="selectedCoverages.basic" data-checklist-value="coverage"/>
+                    <span class="icon" ng-class="SelectedCoverage(coverage, 'basic') ? 'icon-check' : 'icon-check-box'"></span>
+                </label>
+            </div>
+        </div>
+
+    </div>
+    <div class="recommendedCoverages coveragesGroup" ng-if="(product.coverageList | filter: recommendedFilter).length > 0" ng-class="{'disabledPackage':  DisabledPackage(product.id, 'recommended')}">
+        <div class="coveragesGroupIcon">
+            <span class="icon icon-recommended"></span>
+            <p class="coveragesGroupTitle">Recommended</p>
+        </div>
+        <div class="coverageList">
+            <div class="coverage" ng-repeat="coverage in product.coverageList | filter: recommendedFilter" ng-class="{'disabled': !SelectedCoverage(coverage, 'recommended')}">
+                <span class="title" for="checkbox" >{{coverage.title}}</span>
+                <label class="coverageCheckbox">
+                    <input type="checkbox" name="label" checklist-change="ToggleCoverageSelection(coverage)" data-checklist-model="selectedCoverages.recommended" data-checklist-value="coverage"/>
+                    <span class="icon" ng-class="SelectedCoverage(coverage, 'recommended') ? 'icon-check' : 'icon-check-box'"></span>
+                </label>
+            </div>
+        </div>
+
+    </div>
+    <div class="premiumCoverages coveragesGroup" ng-if="(product.coverageList | filter: premiumFilter).length > 0" ng-class="{'disabledPackage':  DisabledPackage(product.id, 'premium')}">
+        <div class="coveragesGroupIcon">
+            <span class="icon icon-premium"></span>
+            <p class="coveragesGroupTitle">Premium</p>
+        </div>
+        <div class="coverageList">
+            <div class="coverage" ng-repeat="coverage in product.coverageList | filter: premiumFilter"  ng-class="{'disabled': !SelectedCoverage(coverage, 'premium')}">
+                <span class="title" for="checkbox" >{{coverage.title}}</span>
+                <label class="coverageCheckbox">
+                    <input type="checkbox" name="label" checklist-change="ToggleCoverageSelection(coverage)" data-checklist-model="selectedCoverages.premium" data-checklist-value="coverage"/>
+                    <span class="icon" ng-class="SelectedCoverage(coverage, 'premium') ? 'icon-check' : 'icon-check-box'"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div id="authenticationPage">
+    <div id="header">
+        <a href="/"><img src="/assets/img/Small_blue_2.svg"/></a>
+    </div>
+    <div id="title">
+        Sign Up
+    </div>
+    <div id="subtitle">
+        Hello stranger, you must be new arround here
+    </div>
+    <div id="authenticationContainer">
+        <div>
+            <form id="authenticationForm">
+                <div>
+                    <span class="input input--hoshi" ng-class="{'input--filled' : newUser.username && newUser.username != ''}">
+                    	<input class="input__field input__field--hoshi" type="text" ng-model="newUser.username" id="name" />
+                    	<label class="input__label input__label--hoshi" for="name">
+                    		<span class="input__label-content input__label-content--hoshi">name</span>
+                    	</label>
+                    </span>
+                </div>
+                <div>
+                    <span class="input input--hoshi" ng-class="{'input--filled' : newUser.email && newUser.email != ''}">
+                    	<input class="input__field input__field--hoshi" type="text" ng-model="newUser.email" id="email" />
+                    	<label class="input__label input__label--hoshi" for="email">
+                    		<span class="input__label-content input__label-content--hoshi">email</span>
+                    	</label>
+                    </span>
+                </div>
+                <div>
+                    <span class="input input--hoshi" ng-class="{'input--filled' : newUser.password && newUser.password != ''}">
+                    	<input class="input__field input__field--hoshi" type="password" ng-model="newUser.password" id="password" />
+                    	<label class="input__label input__label--hoshi" for="password">
+                    		<span class="input__label-content input__label-content--hoshi">password</span>
+                    	</label>
+                    </span>
+                </div>
+                <div id="formFooter">
+                    <label class="rememberCheckbox">
+                        <input type="checkbox" name="label" ng-model = "conditionsAccepted" />
+                        <span class="icon" ng-class="conditionsAccepted ? 'icon-check' : 'icon-check-box'"></span>
+                        <span class="title" for="checkbox" >I accept the terms of services </span>
+                    </label>
+
+                </div>
+                <br/>
+                <button id="submitAuthenticationButton" ng-model="button" ng-click="submitSignupForm()">Register</button>
+            </form>
+        </div>
+        <div>
+            <div id="socialButtons">
+                <button id="facebook" ng-model="button" ng-click="socialLogin('facebook')">Sign up with Facebook</button>
+                <button id="linkedin" ng-model="button" ng-click="socialLogin('linkedin')">Sign up with LinkedIn</button>
+                <button id="google" ng-model="button" ng-click="socialLogin('google')">Sign up with Google +</button>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="authenticationFooter">
+        <a href="#" ng-click="replaceScreen('/login')">Already have an account? Sign in here.</a>
+    </div>
+
+</div>

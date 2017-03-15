@@ -1,0 +1,80 @@
+<dashboard-container option-selected="notifications">
+    <div id="title">
+        Notifications
+    </div>
+    <div id="notificationsContainer">
+
+        <div id="notificationsHeader">
+            <div class="input-group" id="searchInput">
+                <span class="input-group-addon"></span>
+                <input type="text" placeholder ="Search" class="form-control" ng-model="searchSubject">
+                <span class="input-group-addon"><span class="icon icon-search"></span></span>
+            </div>
+            <div id="filters">
+                <div id="filterPinned">
+                    <span  ng-class="{'active': !filterPinned}" ng-click="toogleFilterPinned(false)">All</span>
+                    <span  ng-class="{'active': filterPinned}" ng-click="toogleFilterPinned(true)">Pinned</span>
+                </div>
+
+                <div id="sortNotifications">
+                    <button ng-click="toogleSortOptions()" ng-blur="notificationsBlur()">
+                        <span class="buttonLabel">Sort:</span>
+                        <span>{{filterSelect.text}}</span>
+                        <span clasS="icon icon-down"></span>
+                    </button>
+                    <div id="sortOptions" ng-show="showSortOptions">
+                        <div class="sortGroup">
+                            <div ng-repeat="option in filterOptions" class="sortOption" ng-class="{'active': filterSelect.value === option.value}" ng-mousedown="changeFilter(option)">{{option.text}}</div>
+                        </div>
+                        <div  class="sortGroup">
+                            <div class="sortOption" ng-class="{'active': dateSort === 'enableOld'}" ng-mousedown="changeDateSort('enableOld')">Oldest messages on Top</div>
+                            <div class="sortOption" ng-class="{'active': dateSort === 'enableNew'}" ng-mousedown="changeDateSort('enableNew')">Newest messages on Top</div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+
+    <div id="notificationListWrapper">
+
+    <div id="notificationList">
+        <div class="notificationRow notificationListHeader">
+            <div class="notificationInfo">
+                <div class="new"></div>
+                <div class="subject">
+                    Subject
+                </div>
+                <div class="date">
+                    Date
+                </div>
+            </div>
+        </div>
+        <div class="notificationRow notificationItem" ng-click="notificationDetails(notification)" ng-repeat="notification in notifications | filter: searchSubject | filter: (filterSelect.value === 'enableUnread' ? {new : true} : '')| filter: (filterSelect.value === 'enableReminder' ? {pinned : true} : '') | filter: (filterPinned ? {pinned : true} : '') |orderBy: dateSort === 'enableNew' && '-date' | orderBy: dateSort === 'enableOld' && '+date'">
+            <div class="notificationInfo">
+                <div class="new" ng-class="{'active' : notification.new}">
+                    <span class="icon icon-overview"></span>
+                </div>
+                <div class="subject">
+                    {{ notification.subject }}
+                </div>
+                <div class="date">
+                    {{ notification.date | date:'dd/MM/yyyy' }}
+                </div>
+                <div class="pinned" ng-class="{'active' : notification.pinned}">
+                    <span ng-click="tooglePinned(notification); $event.stopPropagation();" class="icon icon-pin"></span>
+                </div>
+                <div class="expand">
+                    <button ng-click="notificationDetails(notification); $event.stopPropagation();"><span class="icon icon-down" ng-class="{'icon-down' : !notification.showDetails,'icon-up' : notification.showDetails }"></span></button>
+                </div>
+            </div>
+            <div ng-if="notification.showDetails" class="details">
+                {{ notification.text }}
+            </div>
+        </div>
+
+    </div>
+    </div>
+</div>
+
+</dashboard-container>

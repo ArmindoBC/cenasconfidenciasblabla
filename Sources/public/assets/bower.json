@@ -1,0 +1,36 @@
+{
+  "name": "assets",
+  "authors": [
+    "Andre Filipe Silva <andresilva@deloitte.pt>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.0",
+    "angular-route": "1.5.0",
+    "angular-xeditable": "0.1.10",
+    "bootstrap": "3.3.6",
+    "fullpage.js": "2.7.8",
+    "jquery": "2.2.0",
+    "checklist-model": "0.9.0",
+    "ngstorage": "0.3.10",
+    "angular-scroll-pane": "1.1.2",
+    "angular-chart.js": "^0.10.2",
+    "angular-spinner": "0.8.1",
+    "angular-material": "^1.0.9"
+  },
+  "resolutions": {
+    "jquery": ">=1.6.0"
+  }
+}

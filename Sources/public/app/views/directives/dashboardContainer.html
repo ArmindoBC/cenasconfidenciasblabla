@@ -1,0 +1,54 @@
+<div class="small-navbar">
+    <small-navbar id="smallNavbar" hideBar="false" collapsed="true" color="true"></small-navbar>
+</div>
+
+
+<div id="dashboardContainer" >
+    <div id="sidebar">
+        <div id="userInfo">
+            <!--<img src="http://data.whicdn.com/images/19105121/large.jpg" class="img-circle"/>-->
+            <img ng-if="userImage" ng-src="{{userImage}}" class="img-circle" />
+            <span ng-if="!userImage" class="userImage icon icon-user"></span>
+            <div class="name">
+                {{FullName()}}
+            </div>
+            <!--<div class="role">
+                CEO at Deloitte
+            </div>-->
+        </div>
+        <div class="sidebarButton" ng-class="{'active' : optionSelected === 'overview'}" ng-click="GoTo('/overview')" >
+            <span class="icon icon-overview"></span>Overview
+        </div>
+        <div class="sidebarButton" ng-class="{'active' : optionSelected === 'portfolio', 'disabled' : numberPolicies===0}" ng-click="CheckPoliciesAndGoTo('/portfolio')">
+            <span class="icon icon-portfolio"></span>Portfolio
+        </div>
+        <div class="sidebarButton" ng-class="{'active' : optionSelected === 'notifications'}" ng-click="GoTo('/notifications')">
+            <span class="icon icon-notification"></span>Notifications
+        </div>
+        <div class="sidebarButton" ng-class="{'active' : optionSelected === 'profile'}" ng-click="GoTo('/profile')">
+            <span class="icon icon-person"></span>My Profile
+        </div>
+        <div class="sidebarButton" ng-class="{'active' : optionSelected === 'companies', 'disabled' : numberPolicies===0}" ng-click="CheckPoliciesAndGoTo('/companies')">
+            <span class="icon icon-person"></span>Companies
+        </div>
+        <div class="sidebarButton" ng-class="{'active' : optionSelected === 'admin'}" ng-click="GoTo('/admin')" ng-if="UserService.IsAdmin()">
+            <span class="icon icon-person"></span>Administration
+        </div>
+        <div  id="sidebarFooter">
+            <div id="socialButtons">
+                <span class="icon icon-botaoazul"></span>
+                <span class="icon icon-in"></span>
+                <span class="icon icon-g"></span>
+            </div>
+            <div id="termsConditions">
+                Terms of Conditions
+            </div>
+        </div>
+
+    </div>
+    <div id="dashboardContent" >
+        <div id="dashBoardWrapper" ng-transclude>
+
+        </div>
+    </div>
+</div>

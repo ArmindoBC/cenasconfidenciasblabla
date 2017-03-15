@@ -1,0 +1,11 @@
+// out:  ./../css/only-ie.min.css, sourcemap: false, compress: true
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .input--hoshi{
+      &.input--filled .input-text:not(:focus) + .input__label,
+      & .input-text:focus + .input__label{
+            .input__label-content{
+                margin-top: 30px;
+            }
+      }
+    }
+}

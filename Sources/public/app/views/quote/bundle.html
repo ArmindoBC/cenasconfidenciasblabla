@@ -1,0 +1,116 @@
+<div class="small-navbar">
+<small-navbar collapsed="true" hidebar="true" color="false"></small-navbar>
+</div>
+<div class="container-fluid header-image" ng-class="{'services': businessType === 'Services',
+'industry': businessType === 'Industry',
+'construction': businessType === 'Construction',
+'commerce': businessType === 'Commerce',
+'transport': businessType === 'Transport and Logistics',
+'tourism': businessType === 'Tourism',
+'energy': businessType === 'Energy'}">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="coverage-title">{{businessType}} Package</div>
+      <div class="coverage-subtitle">Choose the Plan that fits your needs the best</div>
+    </div>
+  </div>
+</div>
+
+<section class="container bundle-content text-center">
+
+
+  <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="center_bundle">
+          <div class="bundle_square_div">
+          <div class="text-center bundle_square basic" ng-class="{'activePackage': packageSelected == 'basic'}" ng-click="SelectPackage('basic')">
+            <p class="bundleSquareTitle">Basic</p>
+            <span class="icon icon-basic"></span>
+            <p class="price">{{configs.currency}}{{Products.prices.basic}}<span class="currency">/mo</span></p>
+          </div>
+          </div>
+          <div class="bundle_square_div">
+          <div class="text-center bundle_square recommended" ng-class="{'activePackage': packageSelected == 'recommended'}" ng-click="SelectPackage('recommended')">
+            <p class="bundleSquareTitle">Recommended</p>
+            <span class="icon icon-recommended"></span>
+            <p class="price">{{configs.currency}}{{Products.prices.recommended}}<span class="currency">/mo</span></p>
+          </div>
+          </div>
+          <div class="bundle_square_div">
+          <div class="text-center bundle_square premium" ng-class="{'activePackage': packageSelected == 'premium'}" ng-click="SelectPackage('premium')">
+            <p class="bundleSquareTitle">Premium</p>
+            <span class="icon icon-premium"></span>
+            <p class="price">{{configs.currency}}{{Products.prices.premium}}<span class="currency">/mo</span></p>
+          </div>
+          </div>
+          <div class="bundle_square_div">
+          <div class="text-center bundle_square personalized" ng-class="{'activePackage': packageSelected == 'personalized'}">
+            <p class="bundleSquareTitle">Personalized</p>
+            <span class="icon icon-personalized"></span>
+            <p class="price">{{configs.currency}}{{Products.prices.personalized}}<span class="currency">/mo</span></p>
+          </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12 text-center">
+          <div id="productsListContainer" >
+              <bundle-product ng-repeat="product in Products.list" product="product"></bundle-product>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12 text-center">
+          <div id="finalizeBox">
+              <div class="col-md-12 finalizeBoxPrice">
+                  <p>Price</p>
+              </div>
+              <div class="col-md-6 finalizeBoxLeft">
+                  <p class="euro_mo">{{configs.currency}}{{Products.prices[packageSelected] || 0}}<span> / mo</span></p>
+                  <p class="euro_year">{{configs.currency}}{{Products.prices[packageSelected]  * 12 || 0}}<span> / year</span></p>
+              </div>
+              <div class="col-md-6 finalizeBoxRight">
+                  <!--<button type="button" class="btn btn-default save_button" data-toggle="modal" data-target="#AccountNeededModal">Save</button>-->
+                  <button type="button" class="btn btn-default save_button" ng-click="SavePolicy()">Save</button>
+                  <button type="button" class="btn btn-default finalise_button" ng-click="FinalizeQuote()" disabled ng-if="!ProceedEnabled()">Proceed to Payment </button>
+                  <button type="button" class="btn btn-default finalise_button" ng-click="FinalizeQuote()" ng-if="ProceedEnabled()">Proceed to Payment </button>
+              </div>
+          </div>
+
+      </div>
+
+  </div>
+
+
+</div>
+</section>
+
+<paginator previous="'/quote/1'"></paginator>
+
+<footer >
+</footer>
+
+<!-- Modal -->
+<div class="smallModal modal" id="AccountNeededModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <div class="title">
+          Warning
+        </div>
+        <div class="text">
+          In order to <span class="textSpecial">save a policy</span>, you need to log in. What do you wish to do?
+        </div>
+        <div class="buttonsContainer">
+          <div>
+              <button type="button" class="btn btn-primary" ng-click="GoTo('/login?quote=true')" data-backdrop="false" data-dismiss="modal">Log In</button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Return</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

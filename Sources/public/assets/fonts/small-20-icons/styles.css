@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "small-20-icons";
+  src:url("small-20-icons.eot");
+  src:url("small-20-icons.eot?#iefix") format("embedded-opentype"),
+    url("small-20-icons.woff") format("woff"),
+    url("small-20-icons.ttf") format("truetype"),
+    url("small-20-icons.svg#small-20-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "small-20-icons" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "small-20-icons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-botaoazul:before {
+  content: "\6d";
+}
+.icon-g:before {
+  content: "\6e";
+}
+.icon-in:before {
+  content: "\6f";
+}
+.icon-recommended:before {
+  content: "\70";
+}
+.icon-basic:before {
+  content: "\61";
+}
+.icon-back:before {
+  content: "\62";
+}
+.icon-right:before {
+  content: "\63";
+}
+.icon-left:before {
+  content: "\64";
+}
+.icon-down:before {
+  content: "\65";
+}
+.icon-up:before {
+  content: "\66";
+}
+.icon-personalized:before {
+  content: "\67";
+}
+.icon-overview:before {
+  content: "\68";
+}
+.icon-arrow-down:before {
+  content: "\69";
+}
+.icon-portfolio:before {
+  content: "\6a";
+}
+.icon-premium:before {
+  content: "\6b";
+}
+.icon-notification:before {
+  content: "\6c";
+}
+.icon-check:before {
+  content: "\71";
+}
+.icon-person:before {
+  content: "\72";
+}
+.icon-check-box:before {
+  content: "\73";
+}
+.icon-drop-down:before {
+  content: "\74";
+}
+.icon-drop-up:before {
+  content: "\75";
+}
+.icon-next:before {
+  content: "\76";
+}
+.icon-pin:before {
+  content: "\77";
+}
+.icon-check-close:before {
+  content: "\78";
+}
+.icon-search:before {
+  content: "\79";
+}
+.icon-user:before {
+  content: "\7a";
+}

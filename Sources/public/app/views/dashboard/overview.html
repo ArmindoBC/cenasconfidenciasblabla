@@ -1,0 +1,148 @@
+<dashboard-container option-selected="overview" ng-init="init()">
+
+<div id="title">
+	Overview
+</div>
+
+<div id="OverviewPage">
+	<div id="OverviewContainer">
+		<div id="OverviewInfo">
+			<div id="WelcomeAndNewPolicy">
+				<div id="Welcome">
+					<div id="WelcomeHeader">
+						Hello {{userName}},<br>
+						welcome to Small.
+					</div>
+					<div id="WelcomeText">
+						Here you can see all the relevant information to manage your profile, policies or companies.
+					</div>
+				</div>
+
+				<div id="NewPolicy">
+					<div id="NewPolicyText">
+						To edit or add a new
+						<br>
+						policy, click here.
+					</div>
+					<button class="OverviewButtons" ng-click="OpenNewPolicyPopup()">New Policy</button>
+				</div>
+			</div>
+
+			<div id="HistogramAndMoreDetails">
+				<div id="Histogram">
+					<div id="HistogramHeader">
+						Insured Objects
+					</div>
+
+					<div id="HistogramContent" ng-if="HasPolicies">
+						<canvas id="histogram" class="chart chart-bar"></canvas>
+					</div>
+					<div id="HistogramNoPolicies" ng-if="NoPolicies">
+						You don't have any insured objects!
+					</div>
+				</div>
+
+				<div id="MoreDetails" ng-if="HasPolicies">
+					<div id="DetailsText">
+						<div class="DetailsTextPart">
+							{{userName}}, these are
+							<br>
+							all your insured objects.
+						</div>
+						<div class="DetailsTextPart">
+							Would you like
+							<br>
+							to see them in detail?
+						</div>
+					</div>
+					<div id="DetailsButton">
+						<button class="OverviewButtons" ng-click="goToPortfolio()">See more</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="OverviewChartContainer" ng-class="{'resize' : NoPolicies}">
+			<div id="OverviewChartTitleAndButton">
+				<div id="OverviewChartTitle">Portfolio By Product</div>
+
+				<div id="OverviewPremiumButton" ng-if="HasPolicies">
+					<div id="filters">
+						<div id="filterPinned">
+						<span  ng-class="{'active': !annualMonth}" ng-click="toggleAnnualMonth(false)">Annual</span>
+							<span  ng-class="{'active': annualMonth}" ng-click="toggleAnnualMonth(true)">Month</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="OverviewChartContent" ng-if="HasPolicies">
+				<canvas id="doughnut" class="chart chart-doughnut"></canvas>
+
+				<div id="OverviewChartLegend" >
+					<div class="ChartTab ChartMotor">
+						<div class="ChartDescription">
+							Motor
+						</div>
+						<div class="ChartPremium">
+							<div class="ChartMotor">{{chartData[0].value | currency:"€":2}}</div>
+						</div>
+					</div>
+					<div class="ChartTab ChartContent">
+						<div class="ChartDescription">
+							Content
+						</div>
+						<div class="ChartPremium">
+							<div class="ChartContent">{{chartData[1].value | currency:"€":2}}</div>
+						</div>
+					</div>
+					<div class="ChartTab ChartWorkersCompensation">
+						<div class="ChartDescription">
+							Workers Compensation
+						</div>
+						<div class="ChartPremium">
+							<div class="ChartWorkersCompensation">{{chartData[2].value | currency:"€":2}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="OverviewNoPolicies" ng-if="NoPolicies">Currently, you don't have any active policies!</div>
+		</div>
+	</div>
+</div>
+
+</dashboard-container>
+
+<div id="newPolicyModal" class="smallModal modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-body text-center">
+		<div class="title">
+		 New Policy
+		</div>
+		<div class="text">
+		  In order to create a new policy you need to choose a Company.
+		</div>
+		<div id="newPolicyModalButtons">
+			<div id="PopupCompaniesListWrapper">
+				<button ng-click="TooglePopupCompaniesList()" ng-blur="CompaniesBlur()">
+					<span class="buttonLabel">Select Company:</span>
+					<span clasS="icon icon-down"></span>
+				</button>
+				<div id="CompaniesList" ng-show="showPopupCompaniesList">
+					<div class="companiesOption" ng-mousedown="NewPolicy()" >New Company</div>
+					<div  class="companiesGroup">
+						<div class="companiesOption" ng-repeat="policy in policies" ng-mousedown="UpdatePolicy(policy)" >{{policy.businessName}}</div>
+					</div>
+				</div>
+
+			</div>
+			<button id="CancelNewPolicy" type="button" ng-click="GoTo(feedbackMessage.returnLink)" data-dismiss="modal" class="btn btn-default" >
+				Return
+			</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+</div>

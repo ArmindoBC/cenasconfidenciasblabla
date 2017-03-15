@@ -1,0 +1,118 @@
+<dashboard-container option-selected="companies" ng-init="Init()">
+    <div id="title" class="companiesTitle">
+        <div>
+            Companies
+        </div>
+
+        <div id="companiesTitleButtons">
+            <button class="companyButton" ng-class="{'highlight' : policy.id === policySelected.id}" ng-repeat="policy in policies" ng-click="ChangeSelectedPolicy(policy)">{{policy.businessName}}</button>
+        </div>
+
+    </div>
+    <div id="companiesContainer">
+        <div id="companiesHeader">
+            Edit Company
+        </div>
+        <div id="companiesContent">
+            <div class="companiesContentRow">
+                <div class="companiesItem">
+                    <span class="input input--hoshi" ng-class="{'input--filled' : policySelected.businessName && policySelected.businessName != '', 'input-error' : inputErrors.businessName , edit: editModeEnabled}">
+                        <input class="input__field input__field--hoshi" type="text" ng-model="policySelected.businessName" id="businessName" ng-disabled = "!editModeEnabled" ng-blur="ValidateCompanyData('businessName')" />
+                        <label class="input__label input__label--hoshi" for="businessName">
+                            <span class="input__label-content input__label-content--hoshi">Company Name</span>
+                        </label>
+                    </span>
+                    <div class="CompaniesErrors" ng-if="inputErrors.businessName">
+                      <span>*</span>
+                      <span>{{inputErrors.businessName}}</span>
+                    </div>
+                </div>
+                <div class="companiesItem">
+                    <span class="input input--hoshi" ng-class="{'input--filled' : policySelected.businessType && policySelected.businessType != '', 'input-error' : inputErrors.businessType , edit: editModeEnabled}">
+                        <div class="companyEditDropdown">
+                            <button ng-click="toogleBusinessTypeOptions()" ng-blur="businessTypeBlur()"  ng-disabled = "!editModeEnabled">
+                                <span class="buttonLabel">{{policySelected.businessType.text}}</span>
+                                <span clasS="icon icon-down"></span>
+                            </button>
+                            <div class="companyEditDropdownOptions" ng-show="showBusinessType">
+                                <div class="dropdownGroup">
+                                    <div ng-repeat="option in businessTypes" class="dropdownOption" ng-class="{'active': policySelected.businessType.value === option.value}" ng-mousedown="changeBusinessType(option)">{{option.text}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="input__label input__label--hoshi" for="businessType" ng-class = "{'disabled' : !editModeEnabled}">
+                            <span class="input__label-content input__label-content--hoshi">Business Type</span>
+                        </label>
+                    </span>
+                </div>
+                <div class="companiesItem">
+                    <span class="input input--hoshi" ng-class="{'input--filled' : policySelected.numberEmployees && policySelected.numberEmployees != '', 'input-error' : inputErrors.numberEmployees , edit: editModeEnabled}">
+
+                        <div class="companyEditDropdown">
+                            <button ng-click="toogleNumberEmployeesOptions()" ng-blur="numberEmployeesBlur()"  ng-disabled = "!editModeEnabled">
+                                <span class="buttonLabel">{{policySelected.numberEmployees.text}}</span>
+                                <span clasS="icon icon-down"></span>
+                            </button>
+                            <div class="companyEditDropdownOptions" ng-show="showNumberEmployees">
+                                <div class="dropdownGroup">
+                                    <div ng-repeat="option in numberEmployees" class="dropdownOption" ng-class="{'active': policySelected.numberEmployees.value === option.value}" ng-mousedown="changeNumberEmployees(option)">{{option.text}}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label class="input__label input__label--hoshi" for="numberEmployees"  ng-class = "{'disabled' : !editModeEnabled}">
+                            <span class="input__label-content input__label-content--hoshi">Number of Employees</span>
+                        </label>
+                    </span>
+                </div>
+            </div>
+            <div class="companiesContentRow">
+                <div class="companiesItem">
+                    <span class="input input--hoshi" ng-class="{'input--filled' : policySelected.income && policySelected.income != '', 'input-error' : inputErrors.income , edit: editModeEnabled}">
+                        <input class="input__field input__field--hoshi" type="text" ng-model="policySelected.income" id="turnover" ng-disabled = "!editModeEnabled" currency ng-blur="ValidateCompanyData('income')"/>
+                        <label class="input__label input__label--hoshi" for="turnover">
+                            <span class="input__label-content input__label-content--hoshi">Turnover</span>
+                        </label>
+                    </span>
+                    <div class="CompaniesErrors" ng-if="inputErrors.income">
+                      <span>*</span>
+                      <span>{{inputErrors.income}}</span>
+                    </div>
+                </div>
+                <div class="companiesItem">
+                    <span class="input input--hoshi" ng-class="{'input--filled' : policySelected.zipCode && policySelected.zipCode != '', 'input-error' : inputErrors.zipCode , edit: editModeEnabled}">
+                        <input class="input__field input__field--hoshi" type="text" ng-model="policySelected.zipCode" id="turnover" ng-disabled = "!editModeEnabled"  zip-code ng-blur="ValidateCompanyData('zipCode')"/>
+                        <label class="input__label input__label--hoshi" for="zipCode">
+                            <span class="input__label-content input__label-content--hoshi">Zip Code</span>
+                        </label>
+                    </span>
+                    <div class="CompaniesErrors" ng-if="inputErrors.zipCode">
+                      <span>*</span>
+                      <span>{{inputErrors.zipCode}}</span>
+                    </div>
+                </div>
+                <div class="companiesItem">
+                    <!--
+                    <span class="input input--hoshi" ng-class="{'input--filled' : policySelected.cae && policySelected.cae != '', 'input-error' : inputErrors.cae , edit: editModeEnabled}">
+                        <input class="input__field input__field--hoshi" type="text" ng-model="policySelected.cae" id="cae" ng-disabled = "!editModeEnabled" />
+                        <label class="input__label input__label--hoshi" for="cae">
+                            <span class="input__label-content input__label-content--hoshi">CAE</span>
+                        </label>
+                    </span>
+                -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="companiesFooter" >
+        <button id="editCompanyButton" ng-click="EnableEditMode()" ng-show="!editModeEnabled">
+            Edit Profile
+        </button>
+        <button id="cancelButton" ng-click="Cancel()" ng-if="editModeEnabled">
+            Cancel
+        </button>
+        <button id="SaveButton" class="active" ng-click="UpdatePolicy(policySelected)" ng-if="editModeEnabled">
+            Save Company
+        </button>
+    </div>
+</dashborad-container>

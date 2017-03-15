@@ -1,0 +1,151 @@
+@AnimationTransition: all 250ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+@MainMenuItemsAnimationTransition: linear 0.1s;
+
+
+//resposive sizes definition
+
+@mobile-portrait: 360px;
+@mobile-landscape: 600px;
+
+@tablet-portrait: 720px;
+@tablet-landscape: 1024px;
+
+@navbarHighlight: #15E8E6;
+
+@errorFormColor: #E13E81;
+
+@smallButtonColorLeft : #1CCEFF;
+@smallButtonColorRight : #15E8E6;
+
+@smallButtonIntroColor: #0B5790;
+
+@quoteStep1ColorTop: #0E87E8;
+@quoteStep1ColorBottom: #8FB5FF;
+
+@formInputColor: #55FFD3;
+
+@introHeaderTop: #1cceff;
+@introHeaderBottom: #0e87e8;
+
+@navbarHeight: 100px;
+
+//bundleProduct - step2
+
+@bundleContentWidth: 840px;
+@footerHeight: 70px;
+@footerColorLeft: #55ffd3;
+@footerColorRight: #15e8e6;
+
+@font-type-title: 'monteserrat-bold';
+@font-color-title: #FFFFFF;
+@font-size-title: 45pt;
+
+@font-type-subtitle: 'monteserrat-regular';
+@font-color-subtitle: #FFFFFF;
+@font-size-subtitle: 22pt;
+
+@font-size-navbar: 13pt;
+
+@backgroundColor: #F6F6F6;
+@basicColor: #15e8e6;
+@recommendedColor: #1cceff;
+@premiumColor: #0e87e8;
+@personalizedColor: #8eb4ff;
+@disabledColor: #e9e9e9;
+@accentColor: #F13879;
+@nonAccentColor: #262626;
+
+@productBackgroundColor: #ffffff;
+@coverageTitleColor: @nonAccentColor;
+
+@productWidth: 410px;
+
+@coveragesGroupIconWidth: 170px;
+
+@font-type-quote: 'helvetica-light';
+@font-size-quote: 34pt;
+@font-color-quote: #ffffff;
+
+@coveragesGroupIconWidth: 130px;
+@coverageGroupIconTitle: 11pt;
+
+@coverageCheckboxWidth: 25px;
+@coverageCheckboxHeight: 28px;
+
+@ModalButtonWidth: @productWidth;
+@ModalButtonHeight: 45px;
+@ModalButtonPrimaryColor: @accentColor;
+
+@getQuoteButtonWidth: 170px;
+
+
+@font-size-navbar: 13pt;
+@font-size-footer: 15pt;
+
+@bundleSquareWidth: 195px;
+@bundleSquareHeight: 200px;
+
+
+//step 4 - bundle summary
+
+@summaryPackageTitleSize: 40pt;
+@summaryBusinessDescriptionSize: 19pt;
+@businessDescriptionHeader: 18pt;
+@businessDescriptionMargin: 240px;
+@businessInformationTitleSize: 16pt;
+@businessInformationContentSize: 18pt;
+
+@bundleSummaryWidth: 515px;
+@bundlePaymentWidth: 300px;
+@paymentMainColor: @accentColor;
+@paymentPartPadding: 40px;
+@paymentButtonWidth: 220px;
+@paymentButtonHeight: 45px;
+
+@shadowColor: #CCCCCC;
+
+@boxesTitleHeight: 55px;
+@boxesTitleSize: 14pt;
+@summaryTitleSize: 16pt;
+@summaryTitleHeight: @boxesTitleHeight;
+@sumaryContentMarginRight: 20px;
+@sumaryContentMarginTop: 50px;
+@summaryContentTitleSize: 18pt;
+@summaryInsuredPartSize: 16pt;
+@summaryContentSize: 12pt;
+
+@sidebarFontAccent: #56ffd4;
+@sidebarGradientColor1 : #0d89e9;
+@sidebarGradientColor2 : #0b558f;
+
+.shadow(@color: rgba(0,0,0,0.12)) {
+    -webkit-box-shadow: 0px 0px 20px 0px fade(@color, 30%);
+    -moz-box-shadow: 0px 0px 20px 0px fade(@color, 30%);
+    box-shadow: 0px 0px 20px 0px fade(@color, 30%);
+}
+
+.shadow_boxes(@color: rgba(0,0,0,0.12)) {
+    -webkit-box-shadow: 0px 0px 20px 0px fade(@color, 12%);
+    -moz-box-shadow: 0px 0px 20px 0px fade(@color, 12%);
+    box-shadow: 0px 0px 20px 0px fade(@color, 12%);
+}
+
+.button(@color: black){
+    height: 45px;
+    border-radius: 25px;
+    font-size: 12pt;
+    .shadow(@color);
+
+    &, *{
+        .flex-display(inline-flex);
+        .justify-content(center);
+        .align-items(center);
+    }
+
+
+    &:focus,
+    &:hover{
+        outline: none;
+        text-decoration: none;
+    }
+}

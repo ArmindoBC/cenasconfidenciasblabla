@@ -1,0 +1,253 @@
+<dashboard-container option-selected="portfolio" ng-init="init()">
+
+<div id="title" class="portfolioTitle">
+	Portfolio
+
+	<div id="portfolioHeader">
+		<div ng-repeat="policy in policies">
+			<button id="portfolioButtons" ng-click="showCompanyData(policy)" ng-class="{'highlight' : policyIdToShow === policy.id}">{{ policy.businessName }}</button>
+		</div>
+	</div>
+</div>
+
+<div id="portfolioPage">
+	<div >
+		<div id="portfolioOverview">
+			<div id="GeneralInfoContainer">
+				<div id="header">
+					{{policy.businessName}}<br></br>
+				</div>
+				<div id ="body">
+					<div class="fieldDescription">Policy Number</div>
+					<div class="fieldValue">{{policy.policyNumber}}</div>
+					<div class="fieldDescription">Total Premium</div>
+					<div ng-if="!annualMonth" class="fieldValue">{{policy.price.annual.total | currency:"€":2}}</div>
+					<div ng-if="annualMonth" class="fieldValue">{{policy.price.month.total | currency:"€":2}}</div>
+					<div class="fieldDescription">Renovation Date</div>
+					<div class="fieldValue">{{renovationDate | date:'dd/MM/yyyy'}}</div>
+				</div>
+			</div>
+
+			<div id="ChartContainer" >
+				<div id="TitleAndToggleButton">
+					<div id="ChartTitle">Portfolio By Product</div>
+
+					<div id="PremiumToggleButton">
+						<div id="filters">
+							<div id="filterPinned">
+								<span  ng-class="{'active': !annualMonth}" ng-click="toggleAnnualMonth(false, policy)">Annual</span>
+								<span  ng-class="{'active': annualMonth}" ng-click="toggleAnnualMonth(true, policy)">Month</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="ChartTitleAndLegend">
+					<div id="ChartContent" >
+						<canvas id="doughnut" class="chart chart-doughnut" ></canvas><!--chart-legend=true-->
+					</div>
+
+
+					<div id="ChartLegend" >
+						<div class="ChartTab ChartMotor">
+							<div class="ChartDescription">
+								Motor
+							</div>
+							<div class="ChartPremium">
+								<div class="ChartMotor">{{chartData[0].value | currency:"€":2}}</div>
+							</div>
+						</div>
+						<div class="ChartTab ChartContent">
+							<div class="ChartDescription">
+								Content
+							</div>
+							<div class="ChartPremium">
+								<div class="ChartContent">{{chartData[1].value | currency:"€":2}}</div>
+							</div>
+						</div>
+						<div class="ChartTab ChartWorkersCompensation">
+							<div class="ChartDescription">
+								Workers Compensation
+							</div>
+							<div class="ChartPremium">
+								<div class="ChartWorkersCompensation">{{chartData[2].value | currency:"€":2}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="EditPolicyContainer">
+			<button id="EditPolicyButton" ng-click="UpdatePolicy(policy)">Edit Policy</button>
+		</div>
+
+		<div id="portfolioProductsAndCoveragesList" ng-init="getAllCoverages()">
+			<div class="ProductAndContainer">
+				<div class="ProductContainer">
+					<div class="ProductHeader">
+						Vehicles
+					</div>
+					<div class="ProductDetails">
+						<div class="NoProductsInsured" ng-if="policy.insured.vehicles.length===0">
+							Currently, this policy doesn't cover your fleet!
+						</div>
+
+						<div class="ProductTab" ng-repeat="vehicle in policy.insured.vehicles">
+							<div class="InsuredPlusIcon">
+								<div class="ProductInsured">
+									{{ vehicle.brandModel }}
+								</div>
+
+								<button class="iconShowProduct" ng-click="showProductDetails(vehicle)"><span class="icon icon-down" ng-class="{'icon-down' : !vehicle.showDetails,'icon-up' : vehicle.showDetails }"></span></button>
+							</div>
+
+							<div class="ProductValue" ng-if="!vehicle.showDetails">
+								{{ vehicle.registration }}
+							</div>
+
+							<div class="ProductAllInfo" ng-if="vehicle.showDetails">
+								<div class="ProductInfo">
+									<div class="ProductDescription">Brand & Model</div>
+									<div class="ProductValue">{{ vehicle.brandModel }}</div>
+								</div>
+								<div class="ProductInfo">
+									<div class="ProductDescription">Value</div>
+									<div class="ProductValue">{{ vehicle.value }}</div>
+								</div>
+								<div class="ProductInfo">
+									<div class="ProductDescription">Registration</div>
+									<div class="ProductValue">{{ vehicle.registration }}</div>
+								</div>
+								<div class="ProductInfo">
+									<div class="ProductDescription">Year</div>
+									<div class="ProductValue">{{ vehicle.year }}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="CoverageContainer" ng-if="policy.insured.vehicles.length!==0">
+					<div class="CoverageContainerTitle">
+						Coverages
+					</div>
+					<div class="CoverageContainerDetails">
+						<div class="CoverageAndIcon" ng-repeat="selectedCoverage in policy.selectedCoverages | filter:{productid:productsID.motor}" >
+							<div class="CoverageDescription">{{selectedCoverage.title}}</div><span class="icon icon-check">
+						</div>
+						<div class="CoverageAndIcon" ng-repeat="coverage in MotorProducts.coverageList" ng-if="!InSelectedCoverages(policy, coverage)">
+							<div class="CoverageDescription">{{coverage.title}}</div><span class="icon icon-check-close">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="ProductAndContainer">
+				<div class="ProductContainer">
+					<div class="ProductHeader">
+						Persons
+					</div>
+					<div class="ProductDetails">
+						<div class="NoProductsInsured" ng-if="policy.insured.persons.length===0">
+							Currently, this policy doesn't cover your employees!
+						</div>
+
+						<div class="ProductTab" ng-repeat="person in policy.insured.persons">
+							<div class="InsuredPlusIcon">
+								<div class="ProductInsured">
+									{{ person.name }}
+								</div>
+
+								<button class="iconShowProduct" ng-click="showProductDetails(person)"><span class="icon icon-down" ng-class="{'icon-down' : !person.showDetails,'icon-up' : person.showDetails }"></span></button>
+							</div>
+
+							<div class="ProductValue" ng-if="!person.showDetails">
+								{{ person.role }}
+							</div>
+
+							<div class="ProductAllInfo" ng-if="person.showDetails">
+								<div class="ProductInfo">
+									<div class="ProductDescription">Name</div>
+									<div class="ProductValue">{{ person.name }}</div>
+								</div>
+								<div class="ProductInfo">
+									<div class="ProductDescription">Role</div>
+									<div class="ProductValue">{{ person.role }}</div>
+								</div>
+								<div class="ProductInfo">
+									<div class="ProductDescription">Age</div>
+									<div class="ProductValue">{{ person.age }}</div>
+								</div>
+								<div class="ProductInfo">
+									<div class="ProductDescription">Salary</div>
+									<div class="ProductValue">{{ person.salary }}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="CoverageContainer" ng-if="policy.insured.persons.length!==0">
+					<div class="CoverageContainerTitle">
+						Coverages
+					</div>
+					<div class="CoverageContainerDetails">
+						<div class="CoverageAndIcon" ng-repeat="selectedCoverage in policy.selectedCoverages | filter:{productid:productsID.workers}" >
+							<div class="CoverageDescription">{{selectedCoverage.title}}</div><span class="icon icon-check">
+						</div>
+						<div class="CoverageAndIcon" ng-repeat="coverage in WorkersCompensationProducts.coverageList" ng-if="!InSelectedCoverages(policy, coverage)">
+							<div class="CoverageDescription">{{coverage.title}}</div><span class="icon icon-check-close">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="ProductAndContainer">
+				<div class="ProductContainer">
+					<div class="ProductHeader">
+						Properties
+					</div>
+					<div class="ProductDetails">
+
+						<div class="NoProductsInsured" ng-if="policy.insured.properties.length===0">
+							Currently, this policy doesn't cover your properties!
+						</div>
+
+						<div class="ProductTab" ng-repeat="property in policy.insured.properties">
+							<div class="InsuredPlusIcon">
+								<div class="ProductInsured">
+									{{ property.name }}
+								</div>
+
+								<button class="iconShowProduct" ng-click="showProductDetails(property)"><span class="icon icon-down" ng-class="{'icon-down' : !property.showDetails,'icon-up' : property.showDetails }"></span></button>
+							</div>
+
+							<div class="ProductValue">
+								{{ property.address }}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="CoverageContainer" ng-if="policy.insured.properties.length!==0">
+					<div class="CoverageContainerTitle">
+						Coverages
+					</div>
+					<div class="CoverageContainerDetails">
+						<div class="CoverageAndIcon" ng-repeat="selectedCoverage in policy.selectedCoverages | filter:{productid:productsID.content}" >
+							<div class="CoverageDescription">{{selectedCoverage.title}}</div><span class="icon icon-check">
+						</div>
+						<div class="CoverageAndIcon" ng-repeat="coverage in ContentProducts.coverageList" ng-if="!InSelectedCoverages(policy, coverage)">
+							<div class="CoverageDescription">{{coverage.title}}</div><span class="icon icon-check-close">
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+</dashboard-container>

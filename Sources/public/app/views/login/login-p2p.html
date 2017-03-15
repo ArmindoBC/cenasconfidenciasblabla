@@ -1,0 +1,91 @@
+<div class="layout-top-nav">
+<header class="main-header">
+    <nav class="navbar navbar-static-top">
+
+
+        <a href="Dashboard.html" class="navbar-brand"><b>P2P</b>HealthInsurance</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+
+        </button>
+
+
+        <ul class="nav navbar-nav pull-right">
+            <li class="dropdown active">
+                <a href="/login" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Log In</a>
+
+            </li>
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Do you need help <i class="fa fa-question"></i></a>
+
+            </li>
+
+        </ul>
+
+
+
+    </nav>
+</header>
+
+<div  class="content-wrapper">
+
+    <div id="authenticationPage">
+        <div id="header">
+            <a href="/"><h1  class="title-login">P2P Health Insurance</h1></a>
+        </div>
+        <div id="title">
+            Log In
+        </div>
+        <div id="subtitle">
+            Hello there, haven't we seen you before?
+        </div>
+        <div id="authenticationContainer">
+            <div>
+                <form id="authenticationForm">
+                    <div>
+                    <span class="input input--hoshi" ng-class="{'input--filled' : loginUser.username && loginUser.username != ''}">
+                    	<input class="input__field input__field--hoshi" type="text" ng-model="loginUser.username" id="email" />
+                    	<label class="input__label input__label--hoshi" for="email">
+                    		<span class="input__label-content input__label-content--hoshi">email</span>
+                    	</label>
+                    </span>
+                    </div>
+                    <div>
+                    <span class="input input--hoshi" ng-class="{'input--filled' : loginUser.password && loginUser.password != ''}">
+                    	<input class="input__field input__field--hoshi" type="password" ng-model="loginUser.password" id="password" />
+                    	<label class="input__label input__label--hoshi" for="password">
+                    		<span class="input__label-content input__label-content--hoshi">password</span>
+                    	</label>
+                    </span>
+                    </div>
+                    <div id="formFooter">
+                        <label class="rememberCheckbox">
+                            <input type="checkbox" name="label" ng-model = "rememberChecked" />
+                            <span class="icon" ng-class="rememberChecked ? 'icon-check' : 'icon-check-box'"></span>
+                            <span class="title" for="checkbox" >Remember me</span>
+                        </label>
+
+                        <a href="#" class="btn btn-link">Forgot your password?</a>
+                    </div>
+                    <br/>
+                    <button id="submitAuthenticationButton" ng-model="button" ng-click="submitLoginForm()">Take me in</button>
+                </form>
+            </div>
+            <div>
+                <div id="socialButtons">
+                    <button id="facebook" ng-model="button" ng-click="socialLogin('facebook')">Sign in with Facebook</button>
+                    <button id="linkedin" ng-model="button" ng-click="socialLogin('linkedin')">Sign in with LinkedIn</button>
+                    <button id="google" ng-model="button" ng-click="socialLogin('google')">Sign in with Google +</button>
+                </div>
+
+            </div>
+
+        </div>
+        <div id="authenticationFooter">
+            <a href="#" ng-click="replaceScreen('/signup')">Click here to sign up for an account.</a>
+        </div>
+
+    </div>
+
+</div>
+</div>

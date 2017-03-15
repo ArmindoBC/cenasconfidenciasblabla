@@ -1,0 +1,152 @@
+<div class="fixed" ng-init="init()">
+
+    <div class="wrapper">
+
+        <!-- Main Header -->
+        <p2p-navbar></p2p-navbar>-->
+        <div class ="content-wrapper">
+
+            <div class="row">
+                <div class="claim-content">
+                    <div class="box p2p-create-box">
+                        <div class="box-header with-border">
+                            <h3 id="claims-title" class="box-title">Your claims</h3>
+
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="table-responsive">
+                                <table class="table no-margin" id="claim-table">
+                                    <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Value</th>
+                                        <th>Rating</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Visit</td>
+                                        <td>27/05/16</td>
+                                        <td><span class="label label-danger">Pending</span></td>
+                                        <td class="text-bold">15.00€</td>
+                                        <td class="text-bold">8.2/10 <a href="#" class="pull-right"><i class="fa fa-search-plus"></i></a> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dentist visit</td>
+                                        <td>23/03/16</td>
+                                        <td><span class="label label-warning">Processing</span></td>
+                                        <td class="text-bold">20.00€</td>
+                                        <td class="text-bold">9.3/10 <a href="#" ng-click="ClaimManagementModal()" class="pull-right"><i class="fa fa-search-plus"></i></a> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emergence visit</td>
+                                        <td>23/05/15</td>
+                                        <td><span class="label label-warning">Processing</span></td>
+                                        <td class="text-bold">0.00€</td>
+                                        <td class="text-bold">6.7/10 <a href="#" class="pull-right"><i class="fa fa-search-plus"></i></a> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>General medicine visit</td>
+                                        <td>23/07/15</td>
+                                        <td><span class="label label-success">Terminated</span></td>
+                                        <td class="text-bold">0.00€</td>
+                                        <td class="text-bold">8.2/10 <a href="#" class="pull-right"><i class="fa fa-search-plus"></i></a> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Physical therapy</td>
+                                        <td>23/07/14</td>
+                                        <td><span class="label label-success">Terminated</span></td>
+                                        <td class="text-bold">20.00€</td>
+                                        <td class="text-bold">9.8/10 <a href="#" class="pull-right"><i class="fa fa-search-plus"></i></a> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>X-ray</td>
+                                        <td>23/06/14</td>
+                                        <td><span class="label label-success">Terminated</span></td>
+                                        <td class="text-bold">0.00€</td>
+                                        <td class="text-bold">9.5/10 <a href="#" class="pull-right"><i class="fa fa-search-plus"></i></a> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dentist visit</td>
+                                        <td>23/07/13</td>
+                                        <td><span class="label label-success">Terminated</span></td>
+                                        <td class="text-bold">20.00€</td>
+                                        <td class="text-bold">6.2/10 <a href="#" class="pull-right"><i class="fa fa-search-plus"></i></a> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Blood test</td>
+                                        <td>23/07/15</td>
+                                        <td><span class="label label-success">Terminated</span></td>
+                                        <td class="text-bold">10.00€</td>
+                                        <td class="text-bold">9.2/10 <a href="#" class="pull-right"><i class="fa fa-search-plus"></i></a> </td>
+                                    </tr>
+
+
+
+
+
+
+
+
+
+                                    </tbody>
+                                </table>
+                            </div><!-- /.table-responsive -->
+                        </div><!-- /.box-body -->
+                        <div class="box-footer clearfix">
+                            <a href="javascript::;" class="btn btn-make-claims pull-left ">Make a claim</a>
+                            <a href="javascript::;" class="btn btn-all-claims pull-right">View All Claims</a>
+                        </div><!-- /.box-footer -->
+                    </div><!-- /.box -->
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<div id="ClaimManagementModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div clas="modal-header">
+
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="pull-left">
+
+                            <img class="img-responsive" src="assets/img/hospital2.jpg">
+                            <span> Hospital St John</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="pull-left">
+
+                            <img class="img-responsive" src="assets/img/doctor3.jpg">
+                            <span> Dr. John Lennon</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="buttonsContainer center-contents">
+                    <div>
+                        <button class="btn btn-success"> Approve</button>
+                        <button class="btn btn-danger"> Reject</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

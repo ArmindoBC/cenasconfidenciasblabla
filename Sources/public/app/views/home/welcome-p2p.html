@@ -1,0 +1,90 @@
+<div class="layout-top-nav">
+    <!-- Main Header -->
+
+<!-- Left side column. contains the logo and sidebar -->
+
+<!-- Content Wrapper. Contains page content -->
+<!-- /.content-wrapper -->
+
+        <a href="#" class=" help-button center-contents">?</a>
+        <a href="/login"  class="login-button center-contents">Login</a>
+
+
+<div class="content-wrapper">
+
+
+    <div class="quote-wrapper">
+
+
+        <img class="img-home " src="/assets/img/home.png"/>
+
+    <div class="quote-box-aux">
+
+
+
+    <div class="quote-container">
+    <div class="quote">
+        My name is
+        <div
+            class="user-input"
+            contenteditable="true"
+            ng-model="UserInputData.name"
+            ng-blur="ValidateQuoteForm('name')"
+            placeholder="name"
+            ng-class="{'error': UserFormData.errors.name}">
+        </div>
+        I am  <span
+            class="user-input"
+            contenteditable="true"
+            ng-model="UserInputData.age"
+            ng-blur="ValidateQuoteForm('age')"
+            placeholder="age"
+            ng-class="{'error': UserFormData.errors.age}">
+        </span>
+        years old,
+        I live in
+        <span
+            class="user-input"
+            contenteditable="true"
+            ng-model="UserInputData.location"
+            ng-blur="ValidateQuoteForm('location')"
+            placeholder="city"
+            ng-class="{'error': UserFormData.errors.location}">
+        </span>,
+        I am
+        <span
+
+                ng-model="UserInputData.maritalStatus"
+                ng-blur="ValidateQuoteForm('maritalStatus')"
+                placeholder="Marital Status"
+                ng-class="{'error': UserFormData.errors.maritalStatus}">
+
+        <select class="" id="marital-selector">
+            <option> Single </option>
+            <option>Maried</option>
+        </select>
+
+        </span>
+        and I have
+        <span
+            class="user-input"
+            contenteditable="true"
+            ng-model="UserInputData.kidsNumber"
+            ng-blur="ValidateQuoteForm('kidsNumber')"
+            placeholder="x kids"
+            ng-class="{'error': UserFormData.errors.kidsNumber}">
+        </span>
+        kids.
+    </div>
+
+
+        <a href="/choose-plan" >
+            <button class="btn getQuoteButton">Get my Quote!</button>
+        </a>
+    </div>
+    </div>
+    </div>
+</div>
+
+</div>
+</div>

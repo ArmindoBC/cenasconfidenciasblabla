@@ -1,0 +1,153 @@
+<div class="fixed" ng-init="init()">
+    <div class="wrapper">
+        <p2p-navbar></p2p-navbar>
+
+    <div class="content-wrapper">
+
+        <section class="content">
+        <div class="row review-content">
+
+           <div class="col-md-12">
+
+               <div class="box">
+
+                   <div class="box-body">
+
+                       <div class="row">
+
+                           <div class="col-md-2 text-center">
+                                <img class="img-responsive"  src="assets/img/hospital3.jpg">
+
+
+                               <div class="hospital-title text-center">
+                                    Hospital St. John
+                               </div>
+                           </div>
+                            <div  class="col-md-10">
+                               <div class="row">
+                                   <div class="col-md-4">
+                                       <div class="item-box">
+                                           <div class="review-item text-bold">
+                                               Location
+                                           </div>
+                                           <div class="review-item" ng-controller="StarCtrl">
+                                               <div ng-repeat="rating in ratings"  >
+
+                                                   <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="col-md-4">
+                                       <div class="item-box">
+                                           <div class="review-item text-bold">
+                                               Staff
+                                           </div>
+                                           <div class="review-item"  ng-controller="StarCtrl">
+                                               <div ng-repeat="rating in ratings">
+
+                                                   <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                                   <div class="col-md-4">
+                                       <div class="item-box">
+                                           <div class="review-item text-bold">
+                                               Cleanliness
+                                           </div>
+                                           <div class="review-item"  ng-controller="StarCtrl">
+                                               <div ng-repeat="rating in ratings">
+
+                                                   <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                                   <div class="col-md-4">
+                                       <div class="item-box">
+                                           <div class="review-item text-bold">
+                                               Facilities
+                                           </div>
+                                           <div class="review-item"  ng-controller="StarCtrl">
+                                               <div ng-repeat="rating in ratings">
+
+                                                   <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="col-md-4">
+                                       <div class="item-box">
+                                           <div class="review-item text-bold ">
+                                               Friendliness
+                                           </div>
+                                           <div class="review-item"  ng-controller="StarCtrl">
+                                               <div ng-repeat="rating in ratings">
+
+                                                   <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                                   <div class="col-md-4">
+                                       <div class="item-box">
+                                           <div class="review-item text-bold">
+                                               Waiting time
+                                           </div>
+                                           <div class="review-item"  ng-controller="StarCtrl">
+                                               <div ng-repeat="rating in ratings">
+
+                                                   <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   </div>
+                           </div>
+
+                       </div>
+
+                       <div class="row">
+                           <div class="comments-container">
+                           <div class="col-md-2 center-contents">
+                                <div  class="thumb-up center-contents">
+                                <img src="assets/img/Thumb-Up-100.png">
+                                </div>
+                           </div>
+                           <div class="col-md-10 center-contents">
+                               <textarea class="form-control" rows="7" col="40" placeholder="Enter ..."></textarea>
+                           </div>
+                       </div>
+                           </div>
+                       <div class="row">
+
+                         <div class="comments-container">
+                           <div class="col-md-2 center-contents" >
+                               <div class="thumb-down center-contents">
+                               <img src="assets/img/Thumbs-Down-100.png">
+                               </div>
+                           </div>
+                           <div class="col-md-10 center-contents">
+                               <textarea class="text-area" rows="7" col="40" placeholder="Enter ..."></textarea>
+                           </div>
+                       </div>
+                       </div>
+                       <div class="row">
+
+                           <div class="col-md-12">
+                               <button class="btn btn-primary rating-button">Send Review</button>
+                           </div>
+
+                       </div>
+                   </div>
+               </div>
+            </div>
+          </div>
+      </section>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="small-navbar">
+  <small-navbar id="smallNavbar" hideBar="false" collapsed="true" color="true"></small-navbar>
+</div>
+
+<div class="container-fluid InsuranceChoiceHeader">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="title">Now {{ QuoteInfoRepository.bundle.userInfoData.name }},</div>
+            <div class="subtitle">What do you want to insure?</div>
+        </div>
+    </div>
+</div>
+
+<section class="container text-center">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="insuranceChoiceContainer">
+              <div id="InsuranceChoicePackage_vehicles" class="text-center InsuranceChoicePackage">
+                  <div class="header headerVehicles"></div>
+                  <div class="mainContainer">
+                      <div class="titleContainer">
+                          <div class="title">
+                              Vehicles
+                          </div>
+                          <div class="subtitle">
+                              Insure Your Vehicles
+                          </div>
+                      </div>
+                      <div class="items">
+                          <div ng-repeat="$item in QuoteInfoRepository.bundle.insured.vehicles track by $index" class="item">
+                              <insurance-choice-part type="vehicles" part="$item" index="$index"></insurance-choice-part>
+                          </div>
+                          <div class="item" ng-if="newItem.vehicles">
+                              <insurance-choice-part new="true" type="vehicles" part="newItem.vehicles" index="'newItem'"  class="item"></insurance-choice-part>
+                          </div>
+                      </div>
+                  </div>
+                  <button type="button" class="btn btn-primary addButton" ng-click="AddInsuranceLine('vehicles')">+ Add</button>
+              </div>
+
+                <div id="InsuranceChoicePackage_persons" class="text-center InsuranceChoicePackage">
+                    <div class="header headerPersons"></div>
+                    <div class="mainContainer">
+                        <div class="titleContainer">
+                            <div class="title">
+                                Persons
+                            </div>
+                            <div class="subtitle">
+                                Insure Your Workers
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div ng-repeat="$item in QuoteInfoRepository.bundle.insured.persons track by $index" class="item">
+                                <insurance-choice-part type="persons" part="$item" index="$index"></insurance-choice-part>
+                            </div>
+                            <div class="item"  ng-if="newItem.persons" >
+                                <insurance-choice-part new="true" type="persons" part="newItem.persons" index="'newItem'"class="item"></insurance-choice-part>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary addButton" ng-click="AddInsuranceLine('persons')">+ Add</button>
+                </div>
+
+                <div id="InsuranceChoicePackage_properties" class="text-center InsuranceChoicePackage">
+                    <div class="header headerProperties"></div>
+                    <div class="mainContainer">
+                        <div class="titleContainer">
+                            <div class="title">
+                                Properties
+                            </div>
+                            <div class="subtitle">
+                                Insure Your Properties
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div ng-repeat="$item in QuoteInfoRepository.bundle.insured.properties track by $index" class="item">
+                                <insurance-choice-part type="properties" part="$item" index="$index"></insurance-choice-part>
+                            </div>
+                            <div class="item" ng-if="newItem.properties">
+                                <insurance-choice-part new="true" type="properties" part="newItem.properties" index="'newItem'" class="item"></insurance-choice-part>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary addButton" ng-click="AddInsuranceLine('properties')">+ Add</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<paginator ng-if="InsuredNumber() > 0" previous="'/?back=true#user_info'" next="'/quote/2'"></paginator>
+<paginator ng-if="InsuredNumber() === 0" previous="'/?back=true#user_info'"></paginator>
+
+<footer>
+</footer>

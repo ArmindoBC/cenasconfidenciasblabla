@@ -1,0 +1,305 @@
+<div class="fixed" ng-init="init()">
+    <div class="wrapper">
+
+        <!-- Main Header -->
+        <p2p-navbar></p2p-navbar>
+        <!-- Content Wrapper. Contains page content -->
+
+
+        <div class="content-wrapper">
+
+            <!-- Main content -->
+            <section class="content">
+
+                <div class="row">
+                    <div class="col-md-3">
+
+                        <!-- Profile Image -->
+                        <div id="user-profile-box" class="box box-widget widget-user" >
+                            <!-- Add the bg color to the header using any of the bg-* classes -->
+                            <div class="widget-user-header" style="background-color: rgb(69,90,100)">
+                                <h3 class="widget-user-username text-bold" style="color: #FFFFFF;" >{{fullName}}</h3>
+                                <h5 class="widget-user-desc"></h5>
+                            </div>
+                            <div class="widget-user-image">
+                                <img class="img-circle" ng-src="{{userPicture}}" alt="User Avatar">
+                            </div>
+                            <div class="box-footer">
+                                <div class="row">
+                                    <div class="col-sm-6 border-right">
+                                        <div class="description-block">
+                                            <h5 class="description-header">€ 3.200 </h5>
+                                            <span class="description-text">Expenses</span>
+                                        </div><!-- /.description-block -->
+                                    </div><!-- /.col -->
+                                    <div class="col-sm-6 border-right">
+                                        <div class="description-block">
+                                            <h5 class="description-header">130€</h5>
+                                            <span class="description-text">Saved Amount</span>
+                                        </div><!-- /.description-block -->
+                                    </div><!-- /.col -->
+
+                                </div><!-- /.row -->
+                            </div>
+                        </div>
+
+                        <!-- About Me Box -->
+                        <div class="box p2p-create-box">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">About Me</h3>
+                            </div><!-- /.box-header -->
+                            <div class="box-body">
+                                <strong><i class="fa fa-book margin-r-5"></i> Birthday</strong>
+                                <p class="text-muted">
+                                    08/10/1993 - 22 Years Old
+                                </p>
+
+                                <hr>
+
+                                <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+                                <p class="text-muted">Porto, Portugal</p>
+
+                                <hr>
+
+                                <strong><i class="fa fa-pencil margin-r-5"></i> Activities</strong>
+                                <p>
+                                    <span class="label label-danger">Running</span>
+                                    <span class="label label-success">Cycling</span>
+                                    <span class="label label-info">Hiking</span>
+                                    <span class="label label-warning">Tennis</span>
+                                    <span class="label label-primary">Football</span>
+                                </p>
+
+                                <hr>
+
+                                <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+                    </div><!-- /.col -->
+                    <div class="col-md-9">
+
+                        <div class="box p2p-box">
+                            <div class="box-body">
+                                <div class="row row-height">
+
+                                    <div class="col-md-12"  style="height:100%;">
+                                        <div class="bar-title-1">
+                                                    <span class="text-bold">
+                                                        Run km's
+                                                    </span>
+                                            <span class="pull-right"> 50km/250km</span>
+                                        </div>
+                                        <div class="bar-wrapper-1" >
+                                            <div class="bar-outside">
+                                                <div class="bar-inside" style="width:80%">
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12"  style="height:100%;">
+                                        <div class="bar-title-1">
+                                                    <span class="text-bold">
+                                                    Steps
+                                                    </span>
+                                            <span class="pull-right"> 8000000/1000000</span>
+                                        </div>
+                                        <div class="bar-wrapper-1" >
+                                            <div class="bar-outside">
+                                                <div class="bar-inside" style="width:80%">
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12"  style="height:100%;">
+                                        <div class="bar-title-1">
+                                                    <span class="text-bold">
+                                                    Exercise Hours
+                                                    </span>
+                                            <span class="pull-right"> 10h/20h</span>
+                                        </div>
+                                        <div class="bar-wrapper-1" >
+                                            <div class="bar-outside">
+                                                <div class="bar-inside" style="width:50%">
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12"  style="height:100%;">
+                                        <div class="bar-title-1">
+                                                    <span class="text-bold">
+                                                    Total effort
+                                                    </span>
+                                            <span class="pull-right"> 75/100%</span>
+                                        </div>
+                                        <div class="bar-wrapper-1" >
+                                            <div class="bar-outside">
+                                                <div class="bar-inside" style="width:75%">
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+
+                                </div>
+                                </div>
+                            </div>
+
+
+                        <div class="nav-tabs-custom " >
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+
+
+                            </ul>
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="activity">
+                                    <!-- Post -->
+                                    <div class="post">
+                                        <div class="user-block">
+                                            <img class="img-circle img-bordered-sm" src="assets/img/user1-128x128.jpg"
+                                                 alt="user image">
+                        <span class='username'>
+                          <a href="#">Jonathan Burke Jr.</a>
+                          <a href='#' class='pull-right btn-box-tool'><i class='fa fa-times'></i></a>
+                        </span>
+                                            <span class='description'>Shared publicly - 7:30 PM today</span>
+                                        </div><!-- /.user-block -->
+                                        <p>
+                                            Lorem ipsum represents a long-held tradition for designers,
+                                            typographers and the like. Some people hate it and argue for
+                                            its demise, but others ignore the hate as they create awesome
+                                            tools to help create filler text for everyone from bacon lovers
+                                            to Charlie Sheen fans.
+                                        </p>
+                                        <ul class="list-inline">
+                                            <li><a href="#" class="link-black text-sm"><i
+                                                    class="fa fa-share margin-r-5"></i> Share</a></li>
+                                            <li><a href="#" class="link-black text-sm"><i
+                                                    class="fa fa-thumbs-o-up margin-r-5"></i> Like</a></li>
+                                            <li class="pull-right"><a href="#" class="link-black text-sm"><i
+                                                    class="fa fa-comments-o margin-r-5"></i> Comments (5)</a></li>
+                                        </ul>
+
+                                        <input class="form-control input-sm" type="text" placeholder="Type a comment">
+                                    </div><!-- /.post -->
+
+                                    <!-- Post -->
+                                    <div class="post clearfix">
+                                        <div class='user-block'>
+                                            <img class='img-circle img-bordered-sm' src='assets/img/user7-128x128.jpg'
+                                                 alt='user image'>
+                        <span class='username'>
+                          <a href="#">Sarah Ross</a>
+                          <a href='#' class='pull-right btn-box-tool'><i class='fa fa-times'></i></a>
+                        </span>
+                                            <span class='description'>Sent you a message - 3 days ago</span>
+                                        </div><!-- /.user-block -->
+                                        <p>
+                                            Lorem ipsum represents a long-held tradition for designers,
+                                            typographers and the like. Some people hate it and argue for
+                                            its demise, but others ignore the hate as they create awesome
+                                            tools to help create filler text for everyone from bacon lovers
+                                            to Charlie Sheen fans.
+                                        </p>
+
+                                        <input class="form-control input-sm" type="text" placeholder="Type a comment">
+                                    </div><!-- /.post -->
+
+                                    <!-- Post -->
+                                    <div class="post">
+                                        <div class='user-block'>
+                                            <img class='img-circle img-bordered-sm' src='assets/img/user6-128x128.jpg'
+                                                 alt='user image'>
+                        <span class='username'>
+                          <a href="#">Adam Jones</a>
+                          <a href='#' class='pull-right btn-box-tool'><i class='fa fa-times'></i></a>
+                        </span>
+                                            <span class='description'>Posted 5 photos - 5 days ago</span>
+                                        </div><!-- /.user-block -->
+                                        <div class='row margin-bottom'>
+
+                                            <div class='col-sm-12'>
+
+                                                Lorem ipsum represents a long-held tradition for designers,
+                                                typographers and the like. Some people hate it and argue for
+                                                its demise, but others ignore the hate as they create awesome
+                                                tools to help create filler text for everyone from bacon lovers
+                                                to Charlie Sheen fans.
+
+                                            </div><!-- /.col -->
+                                        </div><!-- /.row -->
+
+                                        <ul class="list-inline">
+                                            <li><a href="#" class="link-black text-sm"><i
+                                                    class="fa fa-share margin-r-5"></i> Share</a></li>
+                                            <li><a href="#" class="link-black text-sm"><i
+                                                    class="fa fa-thumbs-o-up margin-r-5"></i> Like</a></li>
+                                            <li class="pull-right"><a href="#" class="link-black text-sm"><i
+                                                    class="fa fa-comments-o margin-r-5"></i> Comments (5)</a></li>
+                                        </ul>
+
+                                        <input class="form-control input-sm" type="text" placeholder="Type a comment">
+                                    </div><!-- /.post -->
+                                    <div class="post">
+                                        <div class='user-block'>
+                                            <img class='img-circle img-bordered-sm' src='assets/img/user6-128x128.jpg'
+                                                 alt='user image'>
+                        <span class='username'>
+                          <a href="#">Adam Jones</a>
+                          <a href='#' class='pull-right btn-box-tool'><i class='fa fa-times'></i></a>
+                        </span>
+                                            <span class='description'>Posted 5 photos - 5 days ago</span>
+                                        </div><!-- /.user-block -->
+                                        <div class='row margin-bottom'>
+
+                                            <div class='col-sm-12'>
+
+                                                Lorem ipsum represents a long-held tradition for designers,
+                                                typographers and the like. Some people hate it and argue for
+                                                its demise, but others ignore the hate as they create awesome
+                                                tools to help create filler text for everyone from bacon lovers
+                                                to Charlie Sheen fans.
+
+                                            </div><!-- /.col -->
+                                        </div><!-- /.row -->
+
+                                        <ul class="list-inline">
+                                            <li><a href="#" class="link-black text-sm"><i
+                                                    class="fa fa-share margin-r-5"></i> Share</a></li>
+                                            <li><a href="#" class="link-black text-sm"><i
+                                                    class="fa fa-thumbs-o-up margin-r-5"></i> Like</a></li>
+                                            <li class="pull-right"><a href="#" class="link-black text-sm"><i
+                                                    class="fa fa-comments-o margin-r-5"></i> Comments (5)</a></li>
+                                        </ul>
+
+                                        <input class="form-control input-sm" type="text" placeholder="Type a comment">
+                                    </div><!-- /.post -->
+                                </div><!-- /.tab-pane -->
+                            </div>
+                        </div>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
+
+    </div>
+
+</div>

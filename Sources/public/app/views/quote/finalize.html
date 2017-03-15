@@ -1,0 +1,224 @@
+<div class="small-navbar">
+<small-navbar collapsed="true" hidebar="true" color="false"></small-navbar>
+</div>
+
+<div class="container-fluid finalizeHeader text-center"
+ng-class="{'basic': bundle.packageSelected === 'basic','recommended': bundle.packageSelected === 'recommended',
+'premium': bundle.packageSelected === 'premium','personalized': bundle.packageSelected === 'personalized' }">
+<div class="row">
+    <div class="col-md-12 text-center">
+        <div class="packageTitle">
+            <span ng-if="bundle.packageSelected === 'basic'">
+                <div class="icon icon-basic"></div>
+                Basic
+            </span>
+            <span ng-if="bundle.packageSelected === 'recommended'">
+                <div class="icon icon-recommended"></div>
+                Recommended
+            </span>
+            <span ng-if="bundle.packageSelected === 'premium'">
+                <div class="icon icon-premium"></div>
+                Premium
+            </span>
+            <span ng-if="bundle.packageSelected === 'personalized'">
+                <div class="icon icon-personalized"></div>
+                Personalized
+            </span>
+            Plan</div>
+            <div class="businessDescription">My Package for {{bundle.userInfoData.businessName}}</div>
+            <div id="businessDescriptionContainer" class="col-md-12">
+                <div class="header">
+                    Business Information:
+                </div>
+                <div class="businessInformation">
+                    <div class="businessInformationPart col-md-4">
+                        <div class="businessInformationTitle">
+                            Person Name
+                        </div>
+                        <div class="businessInformationContent">
+                            {{bundle.userInfoData.name || 'N/A'}}
+                        </div>
+                    </div>
+
+                    <div class="businessInformationPart col-md-4">
+                        <div class="businessInformationTitle">
+                            Type of Service
+                        </div>
+                        <div class="businessInformationContent">
+                            {{bundle.userInfoData.businessType.text || 'N/A'}}
+                        </div>
+                    </div>
+                    <div class="businessInformationPart col-md-4">
+                        <div class="businessInformationTitle">
+                            Turnover
+                        </div>
+                        <div class="businessInformationContent">
+                           {{ bundle.userInfoData.income ? configs.currency + bundle.userInfoData.income : 'N/A'}}
+                       </div>
+                   </div>
+
+
+
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+<section class="container">
+    <div class="row">
+        <div  id="finalizeBundleContainer" class="col-md-12">
+            <div id="finalizeContent">
+                <div id="bundleSummary">
+                    <div class="title">
+                        Public Coverage Summary
+                    </div>
+                    <div class="content">
+                        <div class="row">
+                            <div id="vehiclesContainer" class="summaryProductContainer col-sm-6" ng-if="insured.vehicles.length >0">
+                                <div class="contentTitle">
+                                    Vehicles
+                                </div>
+                                <div>
+                                    <div class="insuredVehicle insuredPart" ng-repeat="vehicle in insured.vehicles">
+                                        <div class="insuredPartTitle">
+                                            {{vehicle.brandModel}}
+                                        </div>
+                                        <div class="insuredPartDescription">
+                                            {{vehicle.registration}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="coveragesTitle" ng-if="(selectedCoverages | filter:{productid: productsID.motor}).length>0">
+                                    Coverages
+                                </div>
+                                <div class="coverageTitle" ng-repeat="coverage in selectedCoverages | filter:{productid: productsID.motor}">
+                                    {{coverage.title}}
+                                </div>
+                            </div>
+                            <div id="personsContainer" class="summaryProductContainer col-sm-6" ng-if="insured.persons.length >0">
+                                <div class="contentTitle">
+                                    Persons
+                                </div>
+                                <div class="insuredPerson insuredPart" ng-repeat="person in insured.persons">
+                                    <div class="insuredPartTitle">
+                                        {{person.name}}
+                                    </div>
+                                    <div class="insuredPartDescription">
+                                        {{person.role}}
+                                    </div>
+                                </div>
+                                <div class="coveragesTitle" ng-if="(selectedCoverages | filter:{productid: productsID.workers}).length>0">
+                                    Coverages
+                                </div>
+                                <div class="coverageTitle" ng-repeat="coverage in selectedCoverages | filter:{productid: productsID.workers}">
+                                    {{coverage.title}}
+                                </div>
+                            </div>
+                            <div id="´propertiesContainer" class="summaryProductContainer col-sm-6" ng-if="insured.properties.length >0">
+                                <div class="contentTitle">
+                                    Properties
+                                </div>
+                                <div class="insuredProperty insuredPart" ng-repeat="property in insured.properties">
+                                    <div class="insuredPartTitle">
+                                        {{property.name}}
+                                    </div>
+                                    <div class="insuredPartDescription">
+                                        {{property.address}}
+                                    </div>
+                                </div>
+                                <div class="coveragesTitle" ng-if="(selectedCoverages | filter:{productid: productsID.content}).length>0">
+                                    Coverages
+                                </div>
+                                <div class="coverageTitle" ng-repeat="coverage in selectedCoverages | filter:{productid: productsID.content}">
+                                    {{coverage.title}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="bundlePayment">
+                    <div class="title">
+                        Payment
+                    </div>
+                    <div id="#nonStickyPayment">
+                        <div class="bundlePaymentPart paymentMethod">
+                            <p>Prefered Payment Period</p>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn" ng-class="{'active' : bundle.paymentProperties.period === 'month'}" ng-click="TooglePaymentPeriod('month')">Monthy</button>
+                                <button type="button" class="btn" ng-class="{'active' : bundle.paymentProperties.period === 'annual'}" ng-click="TooglePaymentPeriod('annual')">Annual</button>
+                            </div>
+                            <p>Payment Method</p>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn" ng-class="{'active' : bundle.paymentProperties.method === 'invoice'}" ng-click="TooglePaymentMethod('invoice')">Invoice</button>
+                                <button type="button" class="btn" ng-class="{'active' : bundle.paymentProperties.method === 'card'}" ng-click="TooglePaymentMethod('card')">Card</button>
+                            </div>
+                        </div>
+                        <div class="bundlePaymentPart receiveMethods">
+                            <p>Receive Invoices</p>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn" ng-class="{'active' : bundle.receiveMethods.invoices === 'email'}" ng-click="ToogleReceiveInvoices('email')">Email</button>
+                                <button type="button" class="btn" ng-class="{'active' : bundle.receiveMethods.invoices === 'post'}" ng-click="ToogleReceiveInvoices('post')">Post</button>
+                            </div>
+                            <p>Receive Policies Method</p>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn" ng-class="{'active' : bundle.receiveMethods.policies === 'email'}" ng-click="ToogleReceivePolicies('email')">Email</button>
+                                <button type="button" class="btn" ng-class="{'active' : bundle.receiveMethods.policies === 'post'}" ng-click="ToogleReceivePolicies('post')">Post</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="stickyPayment">
+                        <div class="bundlePaymentPart">
+                            <p class="euro_mo">{{configs.currency}}{{price.month}}<span>/ mo</span></p>
+                            <p class="euro_year">{{configs.currency}}{{price.annual}}<span>/ year</span></p>
+                        </div>
+                        <div id="paymentButtonArea">
+                            <button type="button" class="btn" ng-click="PayBundle()">Pay</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <paginator previous="'/quote/2'"></paginator>
+</section>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+   $(this).scrollTop(0);
+});
+
+$("#stickyPayment").sticky({topSpacing:120, bottomSpacing: 218, widthFromWrapper: false});
+
+</script>
+<footer>
+</footer>
+
+
+<!-- Modal -->
+<div class="smallModal modal" id="AccountNeededModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <div class="title">
+          Warning
+        </div>
+        <div class="text">
+          In order to <span class="textSpecial">save a policy</span>, you need to log in. What do you wish to do?
+        </div>
+        <div class="buttonsContainer">
+          <div>
+              <button type="button" class="btn btn-primary" ng-click="GoTo('/login')" data-dismiss="modal">Log In</button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Return</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

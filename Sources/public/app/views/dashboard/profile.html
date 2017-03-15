@@ -1,0 +1,104 @@
+<dashboard-container option-selected="profile">
+    <div id="title" class="profileTitle">
+        <div>
+            My Profile
+
+        </div>
+
+        <div id="profileTitleButtons">
+            <button id="editProfileButton" ng-click="EnableEditMode()" ng-show="!editModeEnabled">Edit Profile</button>
+        </div>
+
+    </div>
+    <div id="profileContainer">
+        <div id="profileHeader">
+            Edit Profile
+        </div>
+        <div id="profileContent">
+            <div class="profileContentRow">
+                <div class="profileItem">
+                    <span class="input input--hoshi" ng-class="{'input--filled' : user.fullName && user.fullName != '', 'input-error' : inputErrors.fullName , edit: editModeEnabled}">
+                        <input class="input__field input__field--hoshi" type="text" ng-model="user.fullName" id="name" ng-blur="ValidateUserData('fullName')" ng-disabled = "!editModeEnabled" />
+                        <label class="input__label input__label--hoshi" for="name">
+                            <span class="input__label-content input__label-content--hoshi">Name</span>
+                        </label>
+                    </span>
+                    <div class="ProfileErrors" ng-if="inputErrors.fullName">
+                      <span>*</span>
+                      <span>{{inputErrors.fullName}}</span>
+                    </div>
+                </div>
+                <div class="profileItem">
+                    <span class="input input--hoshi" ng-class="{'input--filled' : user.email && user.email != '', 'input-error' : inputErrors.email, edit: editModeEnabled}">
+                        <input class="input__field input__field--hoshi" type="text" ng-model="user.email" id="email" ng-blur="ValidateUserData('email')" ng-disabled = "!editModeEnabled"/>
+                        <label class="input__label input__label--hoshi" for="email">
+                            <span class="input__label-content input__label-content--hoshi">Email</span>
+                        </label>
+                    </span>
+                    <div class="ProfileErrors" ng-if="inputErrors.email">
+                      <span>*</span>
+                      <span>{{inputErrors.email}}</span>
+                    </div>
+                </div>
+                <div class="profileItem">
+                    <span class="input input--hoshi" ng-class="{'input--filled' : user.address && user.address != '', 'input-error' : inputErrors.address, edit: editModeEnabled}">
+                        <input class="input__field input__field--hoshi" type="text" ng-model="user.address" id="address" ng-blur="ValidateUserData('address')" ng-disabled = "!editModeEnabled"/>
+                        <label class="input__label input__label--hoshi" for="address">
+                            <span class="input__label-content input__label-content--hoshi">Address</span>
+                        </label>
+                    </span>
+                    <div class="ProfileErrors" ng-if="inputErrors.address">
+                      <span>*</span>
+                      <span>{{inputErrors.address}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="profileContentRow">
+                <div class="profileItem">
+                    <span class="input input--hoshi" ng-class="{'input--filled' : user.birthDate && user.birthDate != '', 'input-error' : inputErrors.birthDate, edit: editModeEnabled}">
+                        <input placeholder="dd-mm-yyyy" class="input__field input__field--hoshi" type="text" ng-model="user.birthDate" id="birthDate" ng-blur="ValidateUserData('birthDate')" birth-date ng-disabled = "!editModeEnabled"/>
+                        <label class="input__label input__label--hoshi" for="birthDate">
+                            <span class="input__label-content input__label-content--hoshi">Date of Birth</span>
+                        </label>
+                    </span>
+                    <div class="ProfileErrors" ng-if="inputErrors.birthDate">
+                      <span>*</span>
+                      <span>{{inputErrors.birthDate}}</span>
+                    </div>
+                </div>
+                <div class="profileItem">
+                    <span class="input input--hoshi" ng-class="{'input--filled' : user.phone && user.phone != '', 'input-error' : inputErrors.phone, edit: editModeEnabled}">
+                        <input class="input__field input__field--hoshi" type="text" ng-model="user.phone" id="phone" ng-blur="ValidateUserData('phone')" ng-disabled = "!editModeEnabled" />
+                        <label class="input__label input__label--hoshi" for="phone">
+                            <span class="input__label-content input__label-content--hoshi">Telephone</span>
+                        </label>
+                    </span>
+                    <div class="ProfileErrors" ng-if="inputErrors.phone">
+                      <span>*</span>
+                      <span>{{inputErrors.phone}}</span>
+                    </div>
+                </div>
+                <div class="profileItem">
+                    <span class="input input--hoshi" ng-class="{'input--filled' : user.nif && user.nif != '', 'input-error' : inputErrors.nif, edit: editModeEnabled}">
+                        <input class="input__field input__field--hoshi" type="text" ng-model="user.nif" id="nif" ng-blur="ValidateUserData('nif')" ng-disabled = "!editModeEnabled" />
+                        <label class="input__label input__label--hoshi" for="nif">
+                            <span class="input__label-content input__label-content--hoshi">NIF</span>
+                        </label>
+                    </span>
+                    <div class="ProfileErrors" ng-if="inputErrors.nif">
+                      <span>*</span>
+                      <span>{{inputErrors.nif}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="profileFooter" ng-if="editModeEnabled">
+        <button id="cancelButton" ng-click="Cancel()">
+            Cancel
+        </button>
+        <button id="SaveButton" class="active" ng-click="UpdateUser()">
+            Save Profile
+        </button>
+    </div>
+</dashborad-container>

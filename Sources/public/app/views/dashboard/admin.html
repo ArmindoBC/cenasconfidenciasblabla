@@ -1,0 +1,32 @@
+<dashboard-container option-selected="admin">
+    <div id="adminContainer" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Notifications</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h5>Insert a notification</h5>
+                <form ng-submit="SaveNotification()">
+                    <div class="form-group">
+                        <label for="notificationReceiver">Receiver</label>
+                        <select ng-model = "notificationData.userId" class="form-control" ng-options = "user.id as user.username for user in users" required>
+                            <option value="">Select a User</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notificationSubject">Subject</label>
+                        <input type="text" class="form-control" id="notificationSubject" placeholder="Subject" ng-model="notificationData.subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="notificationText">Text</label>
+                        <textarea id="notificationText" class="form-control" rows="3" placeholder="Insert the notification text" ng-model="notificationData.text" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-default" >Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</dashborad-container>

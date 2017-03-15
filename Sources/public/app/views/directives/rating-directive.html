@@ -1,0 +1,18 @@
+<div class=col-md-12 ng-controler="StarCtrl">
+    <div ng-repeat="rating in ratings">
+        <h2>{{rating.current}} /
+            {{rating.max}}</h2>
+        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>
+    </div>
+</div>
+<div class="col-md-12 clear">
+    <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default" data-ng-click="setMinrate()">Min Rate</button>
+            <button type="button" class="btn btn-default" data-ng-click="setMaxrate()">Max Rate</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" data-ng-click="sendRate()">Send</button>
+        </div>
+    </div>
+</div>

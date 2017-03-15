@@ -1,0 +1,34 @@
+{
+  "name": "smallv2",
+  "version": "2.0.1",
+  "description": "Small v2 Frontend App",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "Deloitte Digital PT",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "0.4.1",
+    "body-parser": "1.15.0",
+    "cookie-parser": "1.4.1",
+    "ejs": "2.4.1",
+    "express": "4.13.4",
+    "express-session": "1.13.0",
+    "minimist": "1.2.0",
+    "passport": "0.3.2",
+    "passport-facebook": "2.1.0",
+    "passport-google-oauth": "1.0.0",
+    "passport-linkedin": "1.0.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-concurrent": "^2.2.1",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-nodemon": "^0.4.1",
+    "grunt-serve": "^0.1.6",
+    "grunt-shell": "^1.2.1",
+    "jit-grunt": "^0.10.0"
+  }
+}
