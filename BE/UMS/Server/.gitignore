@@ -1,0 +1,8 @@
+node_modules/*
+.nodemonignore
+.sass-cache
+.tmp
+
+# IDE specific
+*.iml
+.idea

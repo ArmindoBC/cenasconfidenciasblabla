@@ -1,0 +1,5 @@
+angular.module('login.social', [
+  'login.social.google',
+  'login.social.facebook',
+  'login.social.linkedin'
+]);

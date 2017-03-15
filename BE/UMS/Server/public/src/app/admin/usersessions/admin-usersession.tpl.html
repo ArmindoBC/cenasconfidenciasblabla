@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="page-header">
+            <h1><a href="/admin/usersessions">User Sessions</a> / {{usersession.user.username}}</h1>
+        </div>
+        <form name="detailForm"><fieldset>
+            <legend>Details</legend>
+            <alert ng-repeat="alert in detailAlerts" type="{{alert.type}}" close="closeDetailAlert($index)">{{alert.msg}}</alert>
+            <div class="form-group" >
+                <label class="control-label" for="username">Username:</label>
+                <div class="input-group">
+                    <input type="text" name="user" id="username" class="form-control" value="{{usersession.user.username}}" readonly>
+                    <div class="input-group-btn" >
+                        <a type="button" class="btn btn-default" ng-href="/admin/users/{{usersession.user.id}}">Open</a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" >
+                <label class="control-label" for="token">Token:</label>
+                <input type="text" name="token" id="token" class="form-control" value="{{usersession.token}}" readonly>
+            </div>
+            <div class="form-group" >
+                <label class="control-label" for="createdDate">Creation Date:</label>
+                <input type="text" name="createdDate" id="createdDate" class="form-control" value="{{usersession.createdDate | dateShortFormat}}" readonly="">
+            </div>
+            <div class="form-group" >
+                <label class="control-label" for="expirationDate">Expiration Date:</label>
+                <input type="text" name="expirationDate" id="expirationDate" class="form-control" value="{{usersession.expirationDate | dateShortFormat}}" readonly="">
+            </div>
+
+        </fieldset></form>
+        <form name="deleteForm"><fieldset>
+            <legend>Danger Zone</legend>
+            <alert ng-repeat="alert in deleteAlerts" type="{{alert.type}}" close="closeDeleteAlert($index)">{{alert.msg}}</alert>
+            <div class="form-group">
+                <span class="help-block">
+                    <span class="label label-danger">If you do this, it cannot be undone.</span>&nbsp;<span class="text-muted">You may also create orphaned document relationships too.</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-danger btn-delete" ng-click="invalidateUserSession()">Invalidate User Session</button>
+            </div>
+        </fieldset></form>
+    </div>
+</div>
