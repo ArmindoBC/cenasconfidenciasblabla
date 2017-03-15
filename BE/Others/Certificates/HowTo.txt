@@ -1,0 +1,7 @@
+//Generate Cert
+1 - Install "OpenSSL" from "https://code.google.com/archive/p/openssl-for-windows/downloads"
+2 - Edit the Path Env variable with the path to "OpenSSL"
+2 - Run the "sslcert\sslgen.bat" script
+
+//Install on Node Express
+http://blog.mgechev.com/2014/02/19/create-https-tls-ssl-application-with-express-nodejs/

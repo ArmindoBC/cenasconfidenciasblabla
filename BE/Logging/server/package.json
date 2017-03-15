@@ -1,0 +1,17 @@
+{
+  "name": "LoggingServer(RabbitMQ)",
+  "version": "1.0.0",
+  "description": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "0.4.0",
+    "minimist": "1.2.0",
+    "mongodb": "2.0.52",
+    "mongoose": "4.3.3"
+  }
+}

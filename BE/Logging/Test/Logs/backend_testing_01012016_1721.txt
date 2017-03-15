@@ -1,0 +1,11 @@
+-----Fri Jan 08 2016 17:21:48 GMT+0000 (GMT Standard Time)-----
+Testing FalcorRouter LogClient ... Method Log - Failure test... PASSED
+Testing FalcorRouter LogClient with undefined Log ... Method Log - Failure test... PASSED
+Testing FalcorRouter running on port 9002... PASSED
+Testing MongoDB running on port 27017... PASSED
+Testing RabbitMQ running on port 5672... PASSED
+Testing FalcorRouter LogClient ... Method Log - Success test... PASSED
+Testing the number of rows at DataBase after load FrontEnd ...  PASSED
+Testing the number of rows at DataBase after load Middleware ...  PASSED
+Testing the number of rows at DataBase after load BackEnd ...  PASSED
+Testing the number of rows at DataBase after insert Data ...  PASSED

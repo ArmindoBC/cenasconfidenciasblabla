@@ -1,0 +1,8 @@
+Testing FalcorRouter LogClient ... Method Log - Failure test... PASSED
+Testing FalcorRouter LogClient with undefined Log ... Method Log - Failure test... PASSED
+Testing MongoDB running on port 27017... PASSED
+Testing FalcorRouter running on port 9002... FAILED
+Testing RabbitMQ running on port 5672... FAILED
+Testing the number of rows at DataBase after load Middleware ...  FAILED
+Testing FalcorRouter LogClient ... Method Log - Success test... FAILED
+Testing the number of rows at DataBase after insert Data ...  FAILED

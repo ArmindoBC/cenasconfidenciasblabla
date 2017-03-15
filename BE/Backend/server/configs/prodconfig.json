@@ -1,0 +1,10 @@
+{
+  "HttpServerPort": 9003,
+  "HttpsServerPort": 9013,
+  "DatabaseURL": "mongodb://localhost:27017/insurance_v2",
+  "httpMode": true,
+  "httpsMode": true,
+  "httpsModeKeyPath": "./cert/key.pem",
+  "httpsModeCertPath": "./cert/cert.pem",
+  "defaultUsersGroups" : ["general"]
+}

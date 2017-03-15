@@ -1,0 +1,31 @@
+{
+  "rabbitConfigs": {
+      "host": "localhost",
+      "port": 5672,
+      "queueName": "logQueue",
+      "login": "dd",
+      "password": "dd"
+  },
+  "mongoConfigs": {
+      "host": "localhost",
+      "port": 27017
+  },
+  "frontEndConfig": {
+      "host": "localhost",
+      "port": 9001
+  },
+  "backEndConfigs": {
+      "host": "localhost",
+      "port": 9003
+  },
+  "middlewareConfigs": {
+      "host": "localhost",
+      "port": 9002
+  },
+  "testing": {
+    "mode": true,
+    "stringFrontEnd": "testing mode front-end",
+    "stringMiddleware": "testing mode middleware",
+    "stringBackend": "testing mode back-end"
+  }
+}

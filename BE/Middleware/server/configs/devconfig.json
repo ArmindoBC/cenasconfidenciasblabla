@@ -1,0 +1,30 @@
+{
+  "backendHost": "http://localhost:9003",
+  "frontendDomain" : ["http://localhost:9001","http://127.0.0.1:9001","http://10.123.153.186:9001","http://10.123.153.195:9001"],
+  "httpMode": true,
+  "httpsMode": true,
+  "httpsModeKeyPath": "./cert/key.pem",
+  "httpsModeCertPath": "./cert/cert.pem",
+  "logsPath": "/logs.json",
+  "authPath": "/auth.json",
+  "middlewareHost": {
+      "httpPort": 9002,
+      "httpsPort": 9012
+  },
+  "cacheDefs": {
+      "enabled": false,
+      "adapter" : "redis"
+  },
+  "cacheAdapters": {
+      "redis" : "redis",
+      "memcached": "memcached"
+  },
+  "redisConfigs": {
+      "port": 6379,
+      "host": "localhost"
+  },
+  "memcachedConfigs": {
+      "port": 11211,
+      "host": "localhost"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "falcor-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "0.4.0",
+    "async-q": "0.2.2",
+    "body-parser": "1.14.1",
+    "express": "4.13.3",
+    "falcor-express": "0.1.2",
+    "falcor-json-graph": "1.1.7",
+    "falcor-router": "0.2.11",
+    "ioredis": "1.12.2",
+    "memjs": "0.8.7",
+    "minimist": "1.2.0",
+    "request-promise": "2.0.0",
+    "tcp-ping": "0.1.1"
+  },
+  "devDependencies": {
+    "jshint": "2.9.1"
+  }
+}

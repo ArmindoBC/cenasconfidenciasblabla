@@ -1,0 +1,14 @@
+{
+  "RabbitConfigs": {
+    "host": "localhost",
+    "port": 5672,
+    "queueName": "logQueue",
+    "login": "dd",
+    "password": "dd"
+  },
+  "MongoConfigs": {
+    "host": "localhost",
+    "port": 27017,
+    "databaseName": "insurance"
+  }
+}
